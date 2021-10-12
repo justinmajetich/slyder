@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using NodeCanvas.DialogueTrees;
 
 
@@ -13,12 +14,14 @@ public class CharacterInteraction : MonoBehaviour
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
-    void Update()
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        int layerMask = 1 << LayerMask.NameToLayer("NPC");
+        Debug.Log("OnInteract!!!");
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (context.performed)
         {
+            int layerMask = 1 << LayerMask.NameToLayer("NPC");
+
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.25f, layerMask);
 
             foreach (Collider2D hit in hits)
@@ -32,4 +35,24 @@ public class CharacterInteraction : MonoBehaviour
             }
         }
     }
+
+    //void Update()
+    //{
+    //    int layerMask = 1 << LayerMask.NameToLayer("NPC");
+
+    //    if (Input.GetKeyDown(KeyCode.E))
+    //    {
+    //        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.25f, layerMask);
+
+    //        foreach (Collider2D hit in hits)
+    //        {
+    //            if (hit.CompareTag("NPC"))
+    //            {
+    //                // ????? Check if actor is already in dialogue? Disable input?
+
+    //                dialogueManager.StartDialogue(actorSelf);
+    //            }
+    //        }
+    //    }
+    //}
 }

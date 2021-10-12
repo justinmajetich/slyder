@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 using NodeCanvas.DialogueTrees;
 
@@ -62,8 +63,6 @@ public class DialougeUIController : MonoBehaviour
 
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
     {
-        Debug.Log("DialogueUIController.OnSubtitlesRequest: " + info.statement.text);
-
         actorName.text = info.actor.name;
 
         subtitleText.text = "";
@@ -105,7 +104,7 @@ public class DialougeUIController : MonoBehaviour
         }
 
         // Wait for Space press to continue.
-        while (!Input.GetKeyDown(KeyCode.Space))
+        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             yield return null;
         }
@@ -121,7 +120,7 @@ public class DialougeUIController : MonoBehaviour
         // This yield prevents skipping action on same frame as a previous statements continue action when bindings are the same.
         yield return null;
 
-        while (!Input.GetKeyDown(skipAnimationKey))
+        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             yield return null;
         }
@@ -130,8 +129,6 @@ public class DialougeUIController : MonoBehaviour
 
     private void OnMultipleChoiceRequest(MultipleChoiceRequestInfo info)
     {
-        Debug.Log("DialogueUIController.OnMultipleChoiceRequest");
-
         float buttonHeight = optionButtonPrefab.GetComponent<RectTransform>().rect.height;
         //int buttonIndex = 0;
 
