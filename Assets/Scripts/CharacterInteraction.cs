@@ -25,7 +25,9 @@ public class CharacterInteraction : MonoBehaviour
             {
                 if (hit.CompareTag("NPC"))
                 {
-                    dialogueManager.StartDialogueTree(actorSelf);
+                    // ????? Check if actor is already in dialogue? Disable input?
+
+                    dialogueManager.StartDialogue(actorSelf);
                 }
             }
         }
