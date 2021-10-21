@@ -57,3 +57,9 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+# Ignore Purchased Store Assets and their meta files
+[Aa]ssets/ParadoxNotion/*
+[Aa]ssets/TextMesh Pro/*
+[Aa]ssets/ParadoxNotion.meta
+[Aa]ssets/TextMesh Pro.meta
