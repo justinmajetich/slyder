@@ -47,37 +47,6 @@ public class CharacterController2D : MonoBehaviour
         moveValue = context.ReadValue<Vector2>();
     }
 
-    //void MoveForward()
-    //{
-    //    float verticalInput = Input.GetAxisRaw("Vertical");
-    //    float horizontalInput = Input.GetAxisRaw("Horizontal");
-
-    //    if (verticalInput != 0f || horizontalInput != 0f)
-    //    {
-    //        if (!isMoving)
-    //        {
-    //            isMoving = true;
-    //            //StartCoroutine(AnimateSpriteWalking());
-    //        }
-
-    //        if (verticalInput != 0f && horizontalInput != 0f)
-    //        {
-    //            verticalInput *= 0.6f;
-    //            horizontalInput *= 0.6f;
-    //        }
-
-    //        Vector3 movement = new Vector3(horizontalInput, verticalInput, 0f);
-
-    //        transform.Translate(speed * Time.deltaTime * movement);
-
-    //        //SetSpriteForward(movement.normalized);
-    //    }
-    //    else
-    //    {
-    //        isMoving = false;
-    //    }
-    //}
-
     void SetSpriteForward(Vector3 direction)
     {
         if (direction.y > 0f)
