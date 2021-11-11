@@ -2,11 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using NodeCanvas.DialogueTrees;
 
-
 public class CharacterInteraction : MonoBehaviour
 {
     DialogueActor actorSelf;
     public DialogueManager dialogueManager;
+
+    void OnEnable()
+    {
+        DialogueTree.OnDialogueStarted += DisablePlayerActions;
+        DialogueTree.OnDialogueFinished += EnablePlayerActions;
+    }
+
+    void OnDisable()
+    {
+        DialogueTree.OnDialogueStarted -= DisablePlayerActions;
+        DialogueTree.OnDialogueFinished -= EnablePlayerActions;
+    }
 
     private void Start()
     {
@@ -16,9 +27,7 @@ public class CharacterInteraction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        Debug.Log("OnInteract!!!");
-
-        if (context.performed)
+        if (context.started)
         {
             int layerMask = 1 << LayerMask.NameToLayer("NPC");
 
@@ -28,31 +37,19 @@ public class CharacterInteraction : MonoBehaviour
             {
                 if (hit.CompareTag("NPC"))
                 {
-                    // ????? Check if actor is already in dialogue? Disable input?
-
-                    dialogueManager.StartDialogue(actorSelf);
+                    dialogueManager.StartDialogue(actorSelf, hit.GetComponent<DialogueActor>());
                 }
             }
         }
     }
 
-    //void Update()
-    //{
-    //    int layerMask = 1 << LayerMask.NameToLayer("NPC");
+    private void DisablePlayerActions(DialogueTree obj)
+    {
+        GetComponent<PlayerInput>().actions.Disable();
+    }
 
-    //    if (Input.GetKeyDown(KeyCode.E))
-    //    {
-    //        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.25f, layerMask);
-
-    //        foreach (Collider2D hit in hits)
-    //        {
-    //            if (hit.CompareTag("NPC"))
-    //            {
-    //                // ????? Check if actor is already in dialogue? Disable input?
-
-    //                dialogueManager.StartDialogue(actorSelf);
-    //            }
-    //        }
-    //    }
-    //}
+    private void EnablePlayerActions(DialogueTree obj)
+    {
+        GetComponent<PlayerInput>().actions.Enable();
+    }
 }
