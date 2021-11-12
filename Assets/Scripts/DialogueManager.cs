@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NodeCanvas.DialogueTrees;
@@ -24,11 +23,11 @@ public class DialogueManager : MonoBehaviour
         controller = GetComponent<DialogueTreeController>();
     }
 
-    // Eventually, this function would take a ditionary of conditions
+    // Eventually, this function would take a dictionary of conditions
     // to be run against the game state in order to retrieve the appropriate dialogue tree.
-    public void StartDialogue(DialogueActor instigator)
+    public void StartDialogue(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
-        StartCoroutine(LoadDialogueUI(instigator));
+        StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
 
     private void OnDialogueFinished(DialogueTree tree)
@@ -36,14 +35,17 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(UnloadDialogueUI());
     }
 
-    IEnumerator LoadDialogueUI(DialogueActor instigator)
+    IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
         if (!SceneManager.GetSceneByName("DialogueUI").isLoaded)
         {
             yield return SceneManager.LoadSceneAsync("DialogueUI", LoadSceneMode.Additive);
         }
 
-        //yield return null;
+        // Load actor references into dialogue asset.
+        dialogues[0].SetActorReference(nonPlayerActor.name, nonPlayerActor);
+
+        // Start dialogue tree.
         controller.StartDialogue(dialogues[0], instigator, null);
     }
 
