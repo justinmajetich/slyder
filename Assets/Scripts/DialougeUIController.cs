@@ -1,5 +1,5 @@
-using System.Collections;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,48 +10,13 @@ using NodeCanvas.DialogueTrees;
 
 public class DialougeUIController : MonoBehaviour
 {
-    [Serializable]
-    public class SubtitleSpeeds
-    {
-        public float verySlow = 0.15f;
-        public float slow = 0.1f;
-        public float normal = 0.05f;
-        public float fast = 0.03f;
-        public float veryFast = 0.01f;
-    }
-
-    [Serializable]
-    public class SubtitleDelays
-    {
-        [Header("Punctuation Delay Modifiers")]
-        //public const float characterDelay = 1f;
-        [Range(0f, 5f), Tooltip("This modifier increases the base duration of character animation by a given percentage.")]
-        public float sentenceDelayModifier = 4f;
-        [Range(0f, 5f), Tooltip("This modifier increases the base duration of character animation by a given percentage.")]
-        public float commaDelayModifier = 2.5f;
-        //[Range(0f, 1f), Tooltip("Animate this character at given percent of default animation speed")]
-        //public float finalDelay = 1.2f;
-
-        [Header("Expressive Pauses")]
-        public float shortPause = 0.5f;
-        public float mediumPause = 1f;
-        public float longPause = 2f;
-        public float veryLongPause = 4f;
-    }
-
     public TMP_Text actorName;
 
     [Header("Subtitle Elements")]
     public GameObject subtitleView;
     public TMP_Text subtitleText;
-    public bool allowAnimationSkip = true;
-    public KeyCode skipAnimationKey = KeyCode.Space;
-
-    [Header("Subtitle Pacing")]
-    [SerializeField] SubtitleSpeeds subtitleSpeeds = new SubtitleSpeeds();
-    [SerializeField] SubtitleDelays subtitleDelays = new SubtitleDelays();
-    float currentSubtitleSpeed;
-    bool pauseTriggered = false;
+    public SubtitleAnimator animator;
+    SubtitlesRequestInfo activeSubtitleInfo;
 
     [Header("Option Elements")]
     public GameObject optionsView;
@@ -70,16 +35,14 @@ public class DialougeUIController : MonoBehaviour
     {
         DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
         DialogueTree.OnMultipleChoiceRequest += OnMultipleChoiceRequest;
-        ExpressionTagParser.OnSpeedExpressed += OnSpeedExpressed;
-        ExpressionTagParser.OnPauseExpressed += OnPauseExpressed;
+        SubtitleAnimator.OnAnimationComplete += OnSubtitleAnimationComplete;
     }
 
     void OnDisable()
     {
         DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
         DialogueTree.OnMultipleChoiceRequest -= OnMultipleChoiceRequest;
-        ExpressionTagParser.OnSpeedExpressed -= OnSpeedExpressed;
-        ExpressionTagParser.OnPauseExpressed -= OnPauseExpressed;
+        SubtitleAnimator.OnAnimationComplete -= OnSubtitleAnimationComplete;
     }
 
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
@@ -89,94 +52,10 @@ public class DialougeUIController : MonoBehaviour
         subtitleText.text = "";
         subtitleView.SetActive(true);
 
-        // Start co-routine to write out subtitles with effects.
-        StartCoroutine(AnimateSubtitles(info));
-    }
+        // Pass subtitle text to animator.
+        animator.Animate(info.statement.text);
 
-    IEnumerator AnimateSubtitles(SubtitlesRequestInfo info)
-    {
-        currentSubtitleSpeed = subtitleSpeeds.normal;
-
-        bool animationWasSkipped = false;
-        string dialogueText = info.statement.text;
-
-
-        // If animation skipping is enabled, monitor for skip input.
-        if (allowAnimationSkip)
-        {
-            StartCoroutine(MonitorSkipAnimationInput(() => { animationWasSkipped = true; }));
-        }
-
-        for (int i = 0; i < dialogueText.Length; i++)
-        {
-            // If user has input skip animation action, display full subtitle and break animation loop.
-            if (animationWasSkipped)
-            {
-                subtitleText.text = dialogueText;
-                yield return null;
-                break;
-            }
-
-            // If character opens expression tag (ex. "<speed=1>", pass to parser and wait for new position. Loop in case of subsequent tags.
-            while (dialogueText[i] == Constants.ExpressionTagOpen)
-            {
-                // Parser returns position in text following tag close.
-                i = ExpressionTagParser.Parse(dialogueText, i);
-
-                // If parser returns position beyond range of subtitle text, jump out of animation loops.
-                if (i >= dialogueText.Length)
-                {
-                    goto AnimationComplete;
-                }
-            }
-
-            // Hang animation while pause is active.
-            while (pauseTriggered && !animationWasSkipped)
-            {
-                yield return null;
-            }
-
-            // Add next character to displayed text trigger appropriate delay.
-            if (!animationWasSkipped)
-            {
-                subtitleText.text += dialogueText[i];
-                yield return new WaitForSeconds(GetCharacterDelay(dialogueText[i]));
-            }
-        }
-
-    AnimationComplete:
-
-        // Wait for Space press to continue.
-        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            yield return null;
-        }
-
-        subtitleView.SetActive(false);
-
-        // Execute subtitle request callback to continue dialogue tree.
-        info.Continue();
-    }
-
-    IEnumerator MonitorSkipAnimationInput(Action Do)
-    {
-        // This yield prevents skipping action on same frame as a previous statements continue action when bindings are the same.
-        yield return null;
-
-        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            yield return null;
-        }
-        Do();
-    }
-
-    IEnumerator PauseSubtitleAnimation(float duration)
-    {
-        pauseTriggered = true;
-
-        yield return new WaitForSeconds(duration);
-
-        pauseTriggered = false;
+        activeSubtitleInfo = info;
     }
 
     private void OnMultipleChoiceRequest(MultipleChoiceRequestInfo info)
@@ -226,48 +105,22 @@ public class DialougeUIController : MonoBehaviour
         optionsView.SetActive(false);
     }
 
-    private void OnSpeedExpressed(int value)
+    void OnSubtitleAnimationComplete()
     {
-        // Convert expression value to pre-defined subtitle speed.
-        currentSubtitleSpeed = value switch
-        {
-            -2 => subtitleSpeeds.verySlow,
-            -1 => subtitleSpeeds.slow,
-            1 => subtitleSpeeds.fast,
-            2 => subtitleSpeeds.veryFast,
-            _ => subtitleSpeeds.normal
-        };
+        StartCoroutine(WaitForInputToContinue());
     }
 
-    private void OnPauseExpressed(int value)
+    IEnumerator WaitForInputToContinue()
     {
-        // Convert expression value to pre-defined pause duration.
-        float duration = value switch
+        // Wait for Space press to continue.
+        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            1 => subtitleDelays.shortPause,
-            2 => subtitleDelays.mediumPause,
-            3 => subtitleDelays.longPause,
-            4 => subtitleDelays.veryLongPause,
-            _ => 0f
-        };
+            yield return null;
+        }
 
-        StartCoroutine(PauseSubtitleAnimation(duration));
-    }
+        subtitleView.SetActive(false);
 
-    float GetCharacterDelay(char c)
-    {
-        // Get character-specific delay by slowing the current subtitle speed by a given percentage of itself.
-        if (c == ',')
-        {
-            return currentSubtitleSpeed + (currentSubtitleSpeed * subtitleDelays.commaDelayModifier);
-        }
-        else if (c == '.' || c == '?' || c == '!')
-        {
-            return currentSubtitleSpeed + (currentSubtitleSpeed * subtitleDelays.sentenceDelayModifier);
-        }
-        else
-        {
-            return currentSubtitleSpeed;
-        }
+        // Execute subtitle request callback to continue dialogue tree.
+        activeSubtitleInfo.Continue();
     }
 }

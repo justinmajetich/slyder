@@ -973,21 +973,7 @@ MonoBehaviour:
   actorName: {fileID: 1383394843}
   subtitleView: {fileID: 1471080218}
   subtitleText: {fileID: 1863564050}
-  allowAnimationSkip: 1
-  skipAnimationKey: 32
-  subtitleSpeeds:
-    verySlow: 0.15
-    slow: 0.1
-    normal: 0.05
-    fast: 0.03
-    veryFast: 0.01
-  subtitleDelays:
-    sentenceDelayModifier: 4
-    commaDelayModifier: 2.5
-    shortPause: 0.5
-    mediumPause: 1
-    longPause: 2
-    veryLongPause: 4
+  animator: {fileID: 1863564053}
   optionsView: {fileID: 698681785}
   optionsContainer: {fileID: 364215759}
   optionButtonPrefab: {fileID: 7241780177398768266, guid: a7b0a445aeb3a41bd923704c7be09abc, type: 3}
@@ -1367,7 +1353,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128513305}
   m_HandleRect: {fileID: 2128513304}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1536,6 +1522,7 @@ GameObject:
   - component: {fileID: 1863564051}
   - component: {fileID: 1863564052}
   - component: {fileID: 1863564050}
+  - component: {fileID: 1863564053}
   m_Layer: 5
   m_Name: SubtitleText
   m_TagString: Untagged
@@ -1678,6 +1665,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!114 &1863564053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1863564048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20b1ace3c1f043898a60328d31c0122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleText: {fileID: 1863564050}
+  speeds:
+    verySlow: 0.15
+    slow: 0.1
+    normal: 0.05
+    fast: 0.03
+    veryFast: 0.01
+  delays:
+    sentenceDelayModifier: 4
+    commaDelayModifier: 2.5
+    shortPause: 0.5
+    mediumPause: 1
+    longPause: 2
+    veryLongPause: 4
+  allowAnimationSkip: 1
 --- !u!1 &2128513303
 GameObject:
   m_ObjectHideFlags: 0
