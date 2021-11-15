@@ -26,6 +26,8 @@ public class SubtitleAnimator : MonoBehaviour
         public float sentenceDelayModifier = 4f;
         [Range(0f, 5f), Tooltip("This modifier increases the base duration of character animation by a given percentage.")]
         public float commaDelayModifier = 2.5f;
+        [Range(0f, 1f), Tooltip("This modifier decreases the base duration of character animation by a given percentage.")]
+        public float spaceDelayModifier = 0.5f;
         //[Range(0f, 1f), Tooltip("Animate this character at given percent of default animation speed")]
         //public float finalDelay = 1.2f;
 
@@ -61,6 +63,10 @@ public class SubtitleAnimator : MonoBehaviour
         ExpressionTagParser.OnPauseExpressed -= OnPauseExpressed;
     }
 
+    /// <summary>
+    /// Animates a string into a text mesh object character by character. Animation pacing is dynamic based on settings and embedded expression tags.
+    /// </summary>
+    /// <param name="subtitle">String to animate.</param>
     public void Animate(string subtitle)
     {
         // Pass subtitle text and completion callback to animation coroutine.
@@ -93,7 +99,7 @@ public class SubtitleAnimator : MonoBehaviour
             while (subtitle[i] == Constants.ExpressionTagOpen)
             {
                 // Parser returns position in text following tag close.
-                i = ExpressionTagParser.Parse(subtitle, i);
+                subtitle = ExpressionTagParser.Parse(subtitle, i);
 
                 // If parser returns position beyond range of subtitle text, jump out of animation loops.
                 if (i >= subtitle.Length)
@@ -111,6 +117,16 @@ public class SubtitleAnimator : MonoBehaviour
             // Add next character to displayed text trigger appropriate delay.
             if (!animationWasSkipped)
             {
+                // Check if character begins new word.
+                if (i != 0 && subtitle[i - 1] == ' ')
+                {
+                    if (!WordWillFitLine(subtitle, i))
+                    {
+                        Debug.Log("Word will NOT fit line.");
+                        subtitleText.text += '\n';
+                    }
+                }
+
                 subtitleText.text += subtitle[i];
                 yield return new WaitForSeconds(GetCharacterDelay(subtitle[i]));
             }
@@ -181,9 +197,56 @@ public class SubtitleAnimator : MonoBehaviour
         {
             return animationSpeed + (animationSpeed * delays.sentenceDelayModifier);
         }
+        else if (c == ' ')
+        {
+            return animationSpeed +(animationSpeed * delays.spaceDelayModifier);
+        }
         else
         {
             return animationSpeed;
         }
+    }
+
+    /// <summary>
+    /// Determines if the next word with fit on the current line of the text mesh object.
+    /// </summary>
+    /// <param name="subtitle">The complete string being animated into the text mesh object.</param>
+    /// <param name="i">Current position of animator in subtitle string.</param>
+    /// <returns>True if next word will fit; False if not.</returns>
+    bool WordWillFitLine(string subtitle, int i)
+    {
+        // Store current contents of text mesh object.
+        string temp = subtitleText.text;
+
+        // Get line number of new word based on first character, forcing mesh update to retrieve accurate character data.
+        subtitleText.text += subtitle[i];
+        subtitleText.ForceMeshUpdate();
+
+        int initialLineNumber = subtitleText.textInfo.characterInfo[i].lineNumber;
+
+        i++; // Advance to next position in string.
+
+        // Add remainder of current word (including closing punctuation and/or space) to text mesh object.
+        while (i < subtitle.Length && subtitle[i] != '<')
+        {
+            char c = subtitle[i++];
+
+            subtitleText.text += c;
+
+            if (c == ' ') // If character is space, word has ended.
+            {
+                break;
+            }
+        }
+
+        subtitleText.ForceMeshUpdate(); // Update mesh data again to reflect additional characters.
+
+        // Compare line number of word's first character to that of its last. If different, word does NOT fit line.
+        bool wordFitsLine = initialLineNumber == subtitleText.textInfo.characterInfo[i - 1].lineNumber;
+
+        // Reset text mesh content to pre-function state.
+        subtitleText.text = temp;
+
+        return wordFitsLine;
     }
 }

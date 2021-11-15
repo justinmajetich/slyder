@@ -1353,7 +1353,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128513305}
   m_HandleRect: {fileID: 2128513304}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1687,6 +1687,7 @@ MonoBehaviour:
   delays:
     sentenceDelayModifier: 4
     commaDelayModifier: 2.5
+    spaceDelayModifier: 0.5
     shortPause: 0.5
     mediumPause: 1
     longPause: 2
