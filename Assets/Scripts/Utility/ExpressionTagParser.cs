@@ -14,7 +14,7 @@ public static class ExpressionTagParser
     /// <param name="statement">The statement to parse.</param>
     /// <param name="offset">The offset at which to begin parsing statement string.</param>
     /// <returns>Returns the index of the character following tag close.</returns>
-    public static int Parse(string statement, int tagStartPosition)
+    public static string Parse(string statement, int tagStartPosition)
     {
         Dictionary<string, int> tag = new Dictionary<string, int>();
         string key = "";
@@ -53,6 +53,7 @@ public static class ExpressionTagParser
                 break;
         }
 
-        return i;
+        // Return subtitle without tag.
+        return statement.Remove(tagStartPosition, i - tagStartPosition);
     }
 }
