@@ -199,7 +199,7 @@ public class SubtitleAnimator : MonoBehaviour
         }
         else if (c == ' ')
         {
-            return animationSpeed +(animationSpeed * delays.spaceDelayModifier);
+            return animationSpeed - (animationSpeed * delays.spaceDelayModifier);
         }
         else
         {
