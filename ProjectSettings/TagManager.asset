@@ -45,6 +45,9 @@ TagManager:
   - name: Ground
     uniqueID: 96049425
     locked: 0
+  - name: Level
+    uniqueID: 1043634223
+    locked: 0
   - name: Characters
     uniqueID: 738449757
     locked: 0

@@ -42,6 +42,8 @@ public class DialogueManager : MonoBehaviour
             yield return SceneManager.LoadSceneAsync("DialogueUI", LoadSceneMode.Additive);
         }
 
+        // Query for appropriate dialogue asset ID based on game state and conditions.
+
         // Load actor references into dialogue asset.
         dialogues[0].SetActorReference(nonPlayerActor.name, nonPlayerActor);
 
