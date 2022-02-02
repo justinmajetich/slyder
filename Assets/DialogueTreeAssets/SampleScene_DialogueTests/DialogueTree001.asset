@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3f478ef69fbe04fa9ed3664a8a443e, type: 3}
+  m_Name: DialogueTree001
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Hello,
+    good sir! OMG IS THAT A BUTTERFLY?! Oh, nevermind, that''s just a speck of dust
+    floating off beyond yonder horizon. Well, I guess I ought to be going. Don''t
+    let it worry you. Or wait.... why did I come? here again?"},"_position":{"x":873.1296,"y":221.7406},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"<pause=4>hahahahahaha
+    , hjahahah m , hahah, sfafafafafafaf. fafafafafafafafafaf? fafafafaafafafafaf!"},"_actorName":"NPC","_actorParameterID":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_position":{"x":883.1296,"y":330.1297},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"saySelection":true,"availableChoices":[{"statement":{"_text":"Ay,
+    pardon, I''ll be on my way."}},{"statement":{"_text":"I''ll cut your bloody throat!"}}],"_position":{"x":898.0,"y":453.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"2"},{"statement":{"_text":"<speed=4>You''d
+    best <pause=1><speed=0><pause=1>be running along <pause=2><speed=-1>Laddie..."},"_actorName":"NPC","_actorParameterID":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_position":{"x":821.0,"y":736.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"Then
+    a duel we do have..."},"_actorName":"NPC","_actorParameterID":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_position":{"x":1066.0,"y":712.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"availableChoices":[{"statement":{"_text":"The
+    root GameObject has the Scroll Rect component."}},{"statement":{"_text":"Lorem
+    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+    is simply dummy text of the printing and typesetting industry."}},{"statement":{"_text":"I''d
+    rather not say"}}],"_position":{"x":1154.0,"y":825.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"5"},{"statement":{"_text":"Lorem
+    Ipsum is simply dummy text of the printing and typesetting industry."},"_position":{"x":807.0,"y":1053.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"},{"statement":{"_text":"Lorem
+    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+    is simply dummy text of the printing and typesetting industry."},"_position":{"x":1178.0,"y":1112.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"_position":{"x":1562.0,"y":1020.0},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"8"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"NPC","_id":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_actorObject":1}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 0}
+  _graphSource:
+    _version: 3.21
+    _category: 
+    _comments: 
+    _translation: {x: -40.48888, y: -129.57352}
+    _zoomFactor: 0.8852052
+  _haltSerialization: 0
+  actorParameters:
+  - _keyName: NPC
+    _id: e72cfab4-f897-4aac-9808-d7a6761f69f3
+    _actorObject: {fileID: 0}

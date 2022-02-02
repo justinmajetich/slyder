@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3f478ef69fbe04fa9ed3664a8a443e, type: 3}
+  m_Name: DemoDialogueTree
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"<speed=-2>Hmmmmmmmmmmm"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":771.0,"y":305.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"Hey
+    dad <pause=1><speed=-1>uhhh<speed=0> what ya doing? "},"_position":{"x":764.0,"y":395.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"statement":{"_text":"Mom
+    said lunch is scrounging today"},"_position":{"x":778.0,"y":482.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"2"},{"statement":{"_text":"<pause=1>Sure
+    <pause=3><speed=1>Could yoouu  <pause=2><speed=0>help me untangle this string?"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":762.0,"y":574.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"3"},{"statement":{"_text":"How
+    long will it take? "},"_position":{"x":805.9998,"y":662.9999},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"Who
+    knows <pause=2><speed=1>Certainly<speed=0> quicker than I can do it"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":767.9999,"y":750.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"statement":{"_text":"Alright
+    <pause=1> fine"},"_position":{"x":808.0,"y":837.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"6"},{"statement":{"_text":"Do
+    you <pause=1>remember your grandfather?"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":808.0,"y":923.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"7"},{"statement":{"_text":"You
+    were <pause=1> young when he passed."},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":798.1381,"y":1012.124},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"8"},{"statement":{"_text":"nope"},"_position":{"x":858.1381,"y":1097.124},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"9"},{"statement":{"_text":"I
+    can''t remember<pause=2> which one <pause=1> of his  <speed=-2>brothers<speed=0>
+    died first"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":809.1381,"y":1192.124},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"10"},{"statement":{"_text":"<speed=2>OHHHHH
+    <pause=3><speed=0> you''re doing the pots in order by death date <pause=1> huh"},"_position":{"x":796.1381,"y":1281.124},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"11"},{"statement":{"_text":"Trying,
+    <pause=1> I suppose"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":837.9511,"y":1378.927},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"12"},{"statement":{"_text":"Cool,
+    <pause=2> Cool"},"_position":{"x":861.9511,"y":1461.927},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"13"},{"statement":{"_text":"<speed=1>Mom
+    seems to think the old shopkeeper was hitting on her, I really can''t imagine
+    that being true though. "},"_position":{"x":877.9511,"y":1544.927},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"14"},{"statement":{"_text":"Ha
+    <pause=1>It was true alright"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":872.9511,"y":1628.927},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"15"},{"statement":{"_text":"<pause=1>.<pause=1>.<pause=1>.<pause=1>."},"_position":{"x":866.9144,"y":1710.812},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"16"},{"statement":{"_text":"<pause=1>.<pause=1>.<pause=1>.<pause=1>.<pause=1>.<pause=1>.<pause=1>."},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":881.9144,"y":1789.812},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"17"},{"statement":{"_text":"<speed=2>Yeah????????
+    And???"},"_position":{"x":929.9144,"y":1867.812},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"18"},{"statement":{"_text":"and
+    what?"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":924.0,"y":1944.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"19"},{"statement":{"_text":"What''s
+    the story?!"},"_position":{"x":903.0,"y":2026.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"20"},{"statement":{"_text":"Oh
+    i dunno, he just took a liking to her. He told me one time her skin looked like
+    it lacked \"essential nutrients\" "},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":907.9108,"y":2122.405},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"21"},{"statement":{"_text":"<speed=1>hahahaha
+    <speed=0> wait really? why didn''t you tell mom?"},"_position":{"x":900.9108,"y":2228.405},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"22"},{"statement":{"_text":"Oh,
+    <pause=1> you know how it is"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":910.9108,"y":2314.405},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"23"},{"statement":{"_text":"i
+    do?"},"_position":{"x":949.9108,"y":2387.405},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"24"},{"statement":{"_text":"Well,
+    i dragged your mom out here a long time ago. <pause=1> He seemed harmless. I
+    guess I didn''t really think about it past that. "},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":930.0,"y":2484.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"25"},{"statement":{"_text":"You
+    probably should have said something"},"_position":{"x":955.0,"y":2576.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"26"},{"statement":{"_text":"no
+    I think I did the right thing, <speed=-1> whether I knew it or not "},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":966.0,"y":2657.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"27"},{"statement":{"_text":"I
+    dunno I would have said something"},"_position":{"x":979.0,"y":2751.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"28"},{"statement":{"_text":"I
+    suppose"},"_actorName":"Dad","_actorParameterID":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34","_position":{"x":1015.0,"y":2839.999},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"29"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"10"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"12"},"_targetNode":{"$ref":"13"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"14"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"14"},"_targetNode":{"$ref":"15"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"15"},"_targetNode":{"$ref":"16"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"16"},"_targetNode":{"$ref":"17"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"17"},"_targetNode":{"$ref":"18"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"19"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"19"},"_targetNode":{"$ref":"20"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"21"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"21"},"_targetNode":{"$ref":"22"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"22"},"_targetNode":{"$ref":"23"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"23"},"_targetNode":{"$ref":"24"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"24"},"_targetNode":{"$ref":"25"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"25"},"_targetNode":{"$ref":"26"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"26"},"_targetNode":{"$ref":"27"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"27"},"_targetNode":{"$ref":"28"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"28"},"_targetNode":{"$ref":"29"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"Dad","_id":"0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34"}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.21
+    _category: 
+    _comments: 
+    _translation: {x: -643, y: -2230}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  actorParameters:
+  - _keyName: Dad
+    _id: 0a1e8ff9-99aa-4fc7-87dd-a7ae4cf26a34
+    _actorObject: {fileID: 0}
