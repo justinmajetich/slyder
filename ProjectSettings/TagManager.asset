@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - NPC
+  - Walkable
+  - Interactable
   layers:
   - Default
   - TransparentFX
@@ -14,8 +16,8 @@ TagManager:
   - UI
   - NPC
   - 
-  - 
-  - 
+  - Walkable
+  - Interactable
   - 
   - 
   - 
@@ -45,11 +47,14 @@ TagManager:
   - name: Ground
     uniqueID: 96049425
     locked: 0
-  - name: Level
+  - name: BackgroundProps
     uniqueID: 1043634223
     locked: 0
   - name: Characters
     uniqueID: 738449757
+    locked: 0
+  - name: ForegroundProps
+    uniqueID: 2511145853
     locked: 0
   - name: UI
     uniqueID: 2688659879
