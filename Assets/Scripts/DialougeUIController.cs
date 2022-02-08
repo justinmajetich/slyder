@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using TMPro;
 using NodeCanvas.DialogueTrees;
 
@@ -16,7 +14,6 @@ public class DialougeUIController : MonoBehaviour
     public GameObject subtitleView;
     public TMP_Text subtitleText;
     public SubtitleAnimator animator;
-    SubtitlesRequestInfo activeSubtitleInfo;
 
     [Header("Option Elements")]
     public GameObject optionsView;
@@ -35,27 +32,25 @@ public class DialougeUIController : MonoBehaviour
     {
         DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
         DialogueTree.OnMultipleChoiceRequest += OnMultipleChoiceRequest;
-        SubtitleAnimator.OnAnimationComplete += OnSubtitleAnimationComplete;
+        DialogueManager.OnDialogueWillContinue += OnDialogueWillContinue;
     }
 
     void OnDisable()
     {
         DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
         DialogueTree.OnMultipleChoiceRequest -= OnMultipleChoiceRequest;
-        SubtitleAnimator.OnAnimationComplete -= OnSubtitleAnimationComplete;
+        DialogueManager.OnDialogueWillContinue -= OnDialogueWillContinue;
     }
 
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
     {
         actorName.text = info.actor.name;
-
         subtitleText.text = "";
+
         subtitleView.SetActive(true);
 
         // Pass subtitle text to animator.
         animator.Animate(info.statement.text);
-
-        activeSubtitleInfo = info;
     }
 
     private void OnMultipleChoiceRequest(MultipleChoiceRequestInfo info)
@@ -105,22 +100,8 @@ public class DialougeUIController : MonoBehaviour
         optionsView.SetActive(false);
     }
 
-    void OnSubtitleAnimationComplete()
+    private void OnDialogueWillContinue()
     {
-        StartCoroutine(WaitForInputToContinue());
-    }
-
-    IEnumerator WaitForInputToContinue()
-    {
-        // Wait for Space press to continue.
-        while (!Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            yield return null;
-        }
-
         subtitleView.SetActive(false);
-
-        // Execute subtitle request callback to continue dialogue tree.
-        activeSubtitleInfo.Continue();
     }
 }

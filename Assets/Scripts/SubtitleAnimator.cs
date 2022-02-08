@@ -7,6 +7,7 @@ using TMPro;
 public class SubtitleAnimator : MonoBehaviour
 {
     public static event Action OnAnimationComplete;
+    public static event Action<float> OnTalk;
 
     [Serializable]
     public class SubtitleSpeeds
@@ -122,12 +123,14 @@ public class SubtitleAnimator : MonoBehaviour
                 {
                     if (!WordWillFitLine(subtitle, i))
                     {
-                        Debug.Log("Word will NOT fit line.");
                         subtitleText.text += '\n';
                     }
                 }
 
                 subtitleText.text += subtitle[i];
+
+                OnTalk?.Invoke(animationSpeed); // WORK IN PROGRESS
+
                 yield return new WaitForSeconds(GetCharacterDelay(subtitle[i]));
             }
         }

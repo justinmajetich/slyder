@@ -31,11 +31,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _graphSource:
-    _version: 3.21
+    _version: 3.22
     _category: 
     _comments: 
-    _translation: {x: -40.48888, y: -129.57352}
-    _zoomFactor: 0.8852052
+    _translation: {x: -335, y: -407}
+    _zoomFactor: 0.9450827
   _haltSerialization: 0
   actorParameters:
   - _keyName: NPC

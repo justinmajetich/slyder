@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: PandMom
   m_EditorClassIdentifier: 
   _serializedGraph: '{"type":"NodeCanvas.DialogueTrees.DialogueTree","nodes":[{"statement":{"_text":"Boy
-    I''m sleepy"},"_position":{"x":680.0,"y":199.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"Go
-    back to bed, sleepy head!"},"_actorName":"Mom","_actorParameterID":"9c7d7d4d-0089-4f69-b5a0-7dabe25e230e","_position":{"x":742.0,"y":309.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"_position":{"x":774.0,"y":442.0},"$type":"NodeCanvas.DialogueTrees.ActionNode","$id":"2"},{"_position":{"x":775.0,"y":736.0},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"3"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"Mom","_id":"9c7d7d4d-0089-4f69-b5a0-7dabe25e230e"}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
-  _objectReferences: []
+    I''m sleepy. <pause=1><emotion=3>Can''t believe this is my last day here..."},"_position":{"x":651.0,"y":113.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"0"},{"statement":{"_text":"Go
+    back to bed, sleepy head! <pause=2><emotion=2>I don''t want you to leave."},"_actorName":"Mom","_actorParameterID":"9c7d7d4d-0089-4f69-b5a0-7dabe25e230e","_position":{"x":661.0,"y":392.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"1"},{"_position":{"x":659.0,"y":524.0},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"2"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"Mom","_id":"9c7d7d4d-0089-4f69-b5a0-7dabe25e230e","_actorObject":1}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 0}
   _graphSource:
-    _version: 3.21
+    _version: 3.22
     _category: 
     _comments: 
     _translation: {x: 0, y: 0}

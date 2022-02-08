@@ -1,24 +1,36 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using NodeCanvas.DialogueTrees;
+using UnityEngine.InputSystem;
+
 
 public class DialogueManager : MonoBehaviour
 {
+    public static event Action OnDialogueWillContinue;
+
     public DialogueTreeController controller;
     public DialogueTree[] dialogues = new DialogueTree[0];
 
-    private void OnEnable()
+    SubtitlesRequestInfo activeSubtitleInfo;
+
+
+    void OnEnable()
     {
+        DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
         DialogueTree.OnDialogueFinished += OnDialogueFinished;
+        SubtitleAnimator.OnAnimationComplete += OnSubtitleAnimationComplete;
     }
 
-    private void OnDisable()
+    void OnDisable()
     {
+        DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
         DialogueTree.OnDialogueFinished -= OnDialogueFinished;
+        SubtitleAnimator.OnAnimationComplete -= OnSubtitleAnimationComplete;
     }
 
-    private void Start()
+    void Start()
     {
         controller = GetComponent<DialogueTreeController>();
     }
@@ -30,7 +42,31 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
 
-    private void OnDialogueFinished(DialogueTree tree)
+    void OnSubtitlesRequest(SubtitlesRequestInfo info)
+    {
+        activeSubtitleInfo = info;
+    }
+
+    void OnSubtitleAnimationComplete()
+    {
+        StartCoroutine(WaitForInputToContinue());
+    }
+
+    IEnumerator WaitForInputToContinue()
+    {
+        // Wait for Space press to continue.
+        while (!Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            yield return null;
+        }
+
+        OnDialogueWillContinue?.Invoke();
+
+        // Execute subtitle request callback to continue dialogue tree.
+        activeSubtitleInfo.Continue();
+    }
+
+    void OnDialogueFinished(DialogueTree tree)
     {
         StartCoroutine(UnloadDialogueUI());
     }

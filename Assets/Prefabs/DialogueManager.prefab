@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 95570198044152194}
   - component: {fileID: 95570198044152192}
   - component: {fileID: 95570198044152195}
+  - component: {fileID: 596896868079761439}
   m_Layer: 0
   m_Name: DialogueManager
   m_TagString: Untagged
@@ -93,3 +94,16 @@ MonoBehaviour:
   _serializedBlackboard: '{"_variables":{}}'
   _objectReferences: []
   _serializedVariables: []
+--- !u!114 &596896868079761439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95570198044152196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3361fb367ab56154eaa36a80cf0e6d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  talkSpeedModifier: 1.5
