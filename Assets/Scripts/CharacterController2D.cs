@@ -17,7 +17,7 @@ public class CharacterController2D : MonoBehaviour
 
     [Header("Interaction Settings")]
     public DialogueManager dialogueManager;
-    DialogueActor actorSelf;
+    ExpressiveDialogueActor actorSelf;
 
     [SerializeField, Tooltip("Distance at which an interaction can be initiated.")]
     float interactRange = 1.0f;
@@ -54,7 +54,7 @@ public class CharacterController2D : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
         }
 
-        actorSelf = GetComponent<DialogueActor>();
+        actorSelf = GetComponent<ExpressiveDialogueActor>();
 
         Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
 
@@ -149,7 +149,7 @@ public class CharacterController2D : MonoBehaviour
             yield return null;
         }
 
-        dialogueManager.StartDialogue(actorSelf, hit.collider.gameObject.GetComponent<DialogueActor>());
+        dialogueManager.StartDialogue(actorSelf, hit.collider.gameObject.GetComponent<ExpressiveDialogueActor>());
     }
 
     private void DisablePlayerActions(DialogueTree obj)
