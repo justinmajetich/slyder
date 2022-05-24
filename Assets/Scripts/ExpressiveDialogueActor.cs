@@ -14,6 +14,9 @@ public class ExpressiveDialogueActor : DialogueActor
     public Sprite[] eyeSprites = new Sprite[5];
     public Sprite[] mouthSprites = new Sprite[5];
 
+    [Header("Dialogue UI")]
+    public Transform dialogueAnchor;
+
     private void Start()
     {
         if (!eyesRenderer)

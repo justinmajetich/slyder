@@ -73,9 +73,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
-        if (!SceneManager.GetSceneByName("DialogueUI").isLoaded)
+        if (!SceneManager.GetSceneByName("DialogueUI_2.0").isLoaded)
         {
-            yield return SceneManager.LoadSceneAsync("DialogueUI", LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync("DialogueUI_2.0", LoadSceneMode.Additive);
         }
 
         // Query for appropriate dialogue asset ID based on game state and conditions.
@@ -89,9 +89,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator UnloadDialogueUI()
     {
-        if (SceneManager.GetSceneByName("DialogueUI").isLoaded)
+        if (SceneManager.GetSceneByName("DialogueUI_2.0").isLoaded)
         {
-            yield return SceneManager.UnloadSceneAsync("DialogueUI");
+            yield return SceneManager.UnloadSceneAsync("DialogueUI_2.0");
         }
     }
 }

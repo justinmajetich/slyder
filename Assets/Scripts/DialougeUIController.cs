@@ -9,6 +9,7 @@ using NodeCanvas.DialogueTrees;
 public class DialougeUIController : MonoBehaviour
 {
     public TMP_Text actorName;
+    public GameObject dialogueUI;
 
     [Header("Subtitle Elements")]
     public GameObject subtitleView;
@@ -44,10 +45,18 @@ public class DialougeUIController : MonoBehaviour
 
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
     {
-        actorName.text = info.actor.name;
+        Debug.Log("SubtitleRequested!");
+        ExpressiveDialogueActor actor = (ExpressiveDialogueActor)info.actor;
+        actorName.text = actor.name;
         subtitleText.text = "";
 
         subtitleView.SetActive(true);
+        
+        // Position dialogue bubble.
+        dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.dialogueAnchor.position);
+        dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+        dialogueUI.SetActive(true);
+
 
         // Pass subtitle text to animator.
         animator.Animate(info.statement.text);
@@ -55,6 +64,7 @@ public class DialougeUIController : MonoBehaviour
 
     private void OnMultipleChoiceRequest(MultipleChoiceRequestInfo info)
     {
+        ExpressiveDialogueActor actor = (ExpressiveDialogueActor)info.actor;
         float buttonHeight = optionButtonPrefab.GetComponent<RectTransform>().rect.height;
         actorName.text = info.actor.name;
 
@@ -81,12 +91,19 @@ public class DialougeUIController : MonoBehaviour
             // Set option elements active.
             optionButton.gameObject.SetActive(true);
             optionsView.SetActive(true);
+
+            // Position dialogue bubble.
+            dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.dialogueAnchor.position);
+            dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+            dialogueUI.SetActive(true);
         }
     }
 
     // Method passed to be passed in as callback when an option is selected.
     void OnOptionSelected(Action<int> selectOption, int optionIndex)
     {
+        dialogueUI.SetActive(false);
+
         // Continue dialogue tree according to selected option.
         selectOption(optionIndex);
 
@@ -103,5 +120,6 @@ public class DialougeUIController : MonoBehaviour
     private void OnDialogueWillContinue()
     {
         subtitleView.SetActive(false);
+        dialogueUI.SetActive(false);
     }
 }
