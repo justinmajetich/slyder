@@ -3,27 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using NodeCanvas.DialogueTrees;
+using Pathfinding;
 
 
 public class CharacterController2D : MonoBehaviour
 {
-    // Debug item.
-    public Transform targetPositionMarker;
-
     [Header("Movement Settings")]
-    [SerializeField]
-    float moveSpeed = 3f;
-    Vector2 targetPosition;
+    [Tooltip("The transform object to be used as the player's current movement waypoint.")]
+    public GameObject waypointPrefab;
+    Transform waypoint;
+    AIPath pathfinder;
 
     [Header("Interaction Settings")]
     public DialogueManager dialogueManager;
     ExpressiveDialogueActor actorSelf;
 
-    [SerializeField, Tooltip("Distance at which an interaction can be initiated.")]
-    float interactRange = 1.0f;
-
     RaycastHit2D hit;
     Vector2 lastMousePosition;
+    
+    [SerializeField, Tooltip("Distance at which an interaction can be initiated.")]
+    float interactRange = 1.0f;
+    bool isWaitingToInteract = false;
+    bool isInteracting = false;
 
     [Header("Cursor Textures")]
     [SerializeField]
@@ -56,25 +57,21 @@ public class CharacterController2D : MonoBehaviour
 
         actorSelf = GetComponent<ExpressiveDialogueActor>();
 
-        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
+        // Setup pathfinding components.
+        waypoint = Instantiate(waypointPrefab, transform.position, Quaternion.identity).transform;
+        pathfinder = GetComponent<AIPath>();
+        GetComponent<AIDestinationSetter>().target = waypoint;
 
-        targetPosition = transform.position;
+        // Setup cursor.
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
     void Update()
     {
-        MouseHover();
-
-        if ((Vector2)transform.position != targetPosition)
+        if (!isInteracting)
         {
-            MoveToPosition();
+            MouseHover();
         }
-    }
-
-    private void LateUpdate()
-    {
-        // Visualize targetPosition.
-        targetPositionMarker.position = targetPosition;
     }
 
     void MouseHover()
@@ -115,7 +112,8 @@ public class CharacterController2D : MonoBehaviour
             // If collider is walkable, move to hit position.
             if (hit.collider.gameObject.layer == LayerMask.NameToLayer(Constants.LayerMaskWalkable))
             {
-                targetPosition = hit.point;
+                waypoint.position = hit.point;
+                pathfinder.SearchPath();
             }
 
             // If collider is interactable, move within range and initiate interaction.
@@ -128,37 +126,43 @@ public class CharacterController2D : MonoBehaviour
                 {
                     Vector2 dir = (Vector2)transform.position - interactablePosition;
 
-                    targetPosition = interactablePosition + (dir.normalized * interactRange);
+                    waypoint.position = interactablePosition + (dir.normalized * interactRange);
+                    pathfinder.SearchPath();
                 }
                 
-                StartCoroutine(Interact());
+                if (!isWaitingToInteract)
+                {
+                    StartCoroutine(WaitToInteract(hit.collider.gameObject.GetComponent<ExpressiveDialogueActor>()));
+                }
             }
         }
     }
 
-    void MoveToPosition()
+    IEnumerator WaitToInteract(ExpressiveDialogueActor interactableActor)
     {
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-    }
+        isWaitingToInteract = true;
 
-    IEnumerator Interact()
-    {
         // Wait for player to reach interact range if not already within range.
-        while ((Vector2)transform.position != targetPosition)
+        while ((Vector2)transform.position != (Vector2)waypoint.position)
         {
             yield return null;
         }
 
-        dialogueManager.StartDialogue(actorSelf, hit.collider.gameObject.GetComponent<ExpressiveDialogueActor>());
+        dialogueManager.StartDialogue(actorSelf, interactableActor);
+
+        isWaitingToInteract = false;
     }
 
     private void DisablePlayerActions(DialogueTree obj)
     {
         GetComponent<PlayerInput>().actions.Disable();
+        isInteracting = true;
+        Cursor.SetCursor(defaultCursor, Vector2.zero, CursorMode.Auto);
     }
 
     private void EnablePlayerActions(DialogueTree obj)
     {
         GetComponent<PlayerInput>().actions.Enable();
+        isInteracting = false;
     }
 }
