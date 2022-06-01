@@ -4,7 +4,7 @@ using NodeCanvas.DialogueTrees;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    DialogueActor actorSelf;
+    ExpressiveDialogueActor actorSelf;
     public DialogueManager dialogueManager;
 
     void OnEnable()
@@ -21,7 +21,7 @@ public class CharacterInteraction : MonoBehaviour
 
     private void Start()
     {
-        actorSelf = GetComponent<DialogueActor>();
+        actorSelf = GetComponent<ExpressiveDialogueActor>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
     }
 
@@ -37,7 +37,7 @@ public class CharacterInteraction : MonoBehaviour
             {
                 if (hit.CompareTag("NPC"))
                 {
-                    dialogueManager.StartDialogue(actorSelf, hit.GetComponent<DialogueActor>());
+                    dialogueManager.StartDialogue(actorSelf, hit.GetComponent<ExpressiveDialogueActor>());
                 }
             }
         }

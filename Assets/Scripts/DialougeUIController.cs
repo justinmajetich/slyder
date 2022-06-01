@@ -11,6 +11,7 @@ public class DialougeUIController : MonoBehaviour
     public TMP_Text actorName;
     public GameObject dialogueUI;
 
+
     [Header("Subtitle Elements")]
     public GameObject subtitleView;
     public TMP_Text subtitleText;
@@ -45,18 +46,14 @@ public class DialougeUIController : MonoBehaviour
 
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
     {
-        Debug.Log("SubtitleRequested!");
         ExpressiveDialogueActor actor = (ExpressiveDialogueActor)info.actor;
         actorName.text = actor.name;
         subtitleText.text = "";
 
         subtitleView.SetActive(true);
-        
-        // Position dialogue bubble.
-        dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.dialogueAnchor.position);
-        dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
-        dialogueUI.SetActive(true);
 
+        PositionUIByActor(actor);
+        dialogueUI.SetActive(true);
 
         // Pass subtitle text to animator.
         animator.Animate(info.statement.text);
@@ -92,9 +89,7 @@ public class DialougeUIController : MonoBehaviour
             optionButton.gameObject.SetActive(true);
             optionsView.SetActive(true);
 
-            // Position dialogue bubble.
-            dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.dialogueAnchor.position);
-            dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+            PositionUIByActor(actor);
             dialogueUI.SetActive(true);
         }
     }
@@ -121,5 +116,23 @@ public class DialougeUIController : MonoBehaviour
     {
         subtitleView.SetActive(false);
         dialogueUI.SetActive(false);
+    }
+
+    void PositionUIByActor(ExpressiveDialogueActor actor)
+    {
+        if (actor.dialogueOrientation == DialogueOrientation.Left)
+        {
+            dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.leftUIAnchor.position);
+            dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+        }
+        else if (actor.dialogueOrientation == DialogueOrientation.Right)
+        {
+            dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.rightUIAnchor.position);
+            dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+        }
+        else
+        {
+            Debug.Log("No Dialogue Position assigned to actor " + actor.name + ".");
+        }
     }
 }

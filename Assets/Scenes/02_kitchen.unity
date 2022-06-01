@@ -1531,21 +1531,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1023606370, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
-      propertyPath: _name
-      value: NPC
-      objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737096, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737096, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.53
+      value: 0.937
       objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737096, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.06
+      value: -1.393
       objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737096, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_LocalPosition.z

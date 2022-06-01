@@ -37,8 +37,9 @@ public class DialogueManager : MonoBehaviour
 
     // Eventually, this function would take a dictionary of conditions
     // to be run against the game state in order to retrieve the appropriate dialogue tree.
-    public void StartDialogue(DialogueActor instigator, IDialogueActor nonPlayerActor)
+    public void StartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
     {
+        SetActorOrientations(instigator, nonPlayerActor);
         StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
 
@@ -73,9 +74,9 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
-        if (!SceneManager.GetSceneByName("DialogueUI_2.0").isLoaded)
+        if (!SceneManager.GetSceneByName("DialogueUI").isLoaded)
         {
-            yield return SceneManager.LoadSceneAsync("DialogueUI_2.0", LoadSceneMode.Additive);
+            yield return SceneManager.LoadSceneAsync("DialogueUI", LoadSceneMode.Additive);
         }
 
         // Query for appropriate dialogue asset ID based on game state and conditions.
@@ -89,9 +90,23 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator UnloadDialogueUI()
     {
-        if (SceneManager.GetSceneByName("DialogueUI_2.0").isLoaded)
+        if (SceneManager.GetSceneByName("DialogueUI").isLoaded)
         {
-            yield return SceneManager.UnloadSceneAsync("DialogueUI_2.0");
+            yield return SceneManager.UnloadSceneAsync("DialogueUI");
+        }
+    }
+
+    void SetActorOrientations(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
+    {
+        if (Vector3.Dot(actorA.transform.position.normalized - actorB.transform.position.normalized, Vector3.right) <= 0f)
+        {
+            actorA.dialogueOrientation = DialogueOrientation.Left;
+            actorB.dialogueOrientation = DialogueOrientation.Right;
+        }
+        else
+        {
+            actorA.dialogueOrientation = DialogueOrientation.Right;
+            actorB.dialogueOrientation = DialogueOrientation.Left;
         }
     }
 }

@@ -15,7 +15,9 @@ public class ExpressiveDialogueActor : DialogueActor
     public Sprite[] mouthSprites = new Sprite[5];
 
     [Header("Dialogue UI")]
-    public Transform dialogueAnchor;
+    public Transform leftUIAnchor;
+    public Transform rightUIAnchor;
+    public DialogueOrientation dialogueOrientation = DialogueOrientation.None;
 
     private void Start()
     {
@@ -51,4 +53,11 @@ public class ExpressiveDialogueActor : DialogueActor
             }
         }
     }
+}
+
+public enum DialogueOrientation
+{
+    Left = -1,
+    Right = 1,
+    None = 0
 }

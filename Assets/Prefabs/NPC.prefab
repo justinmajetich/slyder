@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &28014227
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28014228}
+  m_Layer: 9
+  m_Name: RightUIAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &28014228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28014227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: 1.675, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5973877475822125352}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &143386526462191064
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3115014325323166591}
   m_Layer: 9
-  m_Name: DialogueAnchor
+  m_Name: LeftUIAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 143386526462191064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.787, z: 0}
+  m_LocalPosition: {x: -0.65, y: 1.675, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5973877475822125352}
@@ -91,6 +121,7 @@ Transform:
   m_Children:
   - {fileID: 1903295644435988764}
   - {fileID: 3115014325323166591}
+  - {fileID: 28014228}
   m_Father: {fileID: 4037633958921737096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -368,7 +399,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a6042ef4054f13b4780f7e9da4aa1c23, type: 3}
   - {fileID: 21300000, guid: 5315991713f60b44686609ba8673da26, type: 3}
   - {fileID: 0}
-  dialogueAnchor: {fileID: 3115014325323166591}
+  leftUIAnchor: {fileID: 3115014325323166591}
+  rightUIAnchor: {fileID: 28014228}
+  dialogueOrientation: 0
 --- !u!1 &8046093171669767324
 GameObject:
   m_ObjectHideFlags: 0
