@@ -56,7 +56,10 @@ public class CharacterSpriteController : MonoBehaviour
 
     private void Start()
     {
-        maxVelocity = GetComponent<AIPath>().maxSpeed;
+        if (GetComponent<AIPath>())
+        {
+            maxVelocity = GetComponent<AIPath>().maxSpeed;
+        }
 
         lastZRotation = transform.eulerAngles.z;
         lastPosition = transform.position;
@@ -77,8 +80,6 @@ public class CharacterSpriteController : MonoBehaviour
 
         velocity = (((Vector2)transform.position - lastPosition) / Time.deltaTime).magnitude;
         isWalking = velocity > 0.01f;
-
-        //debugUI.text = $"velocity: " + velocity.ToString("F4");
 
         lastPosition = transform.position;
     }

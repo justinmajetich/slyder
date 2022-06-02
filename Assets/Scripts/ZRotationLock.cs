@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ZRotationLock : MonoBehaviour
 {
-    void Update()
+    void LateUpdate()
     {
         transform.rotation = Quaternion.identity;
     }

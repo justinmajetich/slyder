@@ -39,7 +39,8 @@ public class DialogueManager : MonoBehaviour
     // to be run against the game state in order to retrieve the appropriate dialogue tree.
     public void StartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
     {
-        SetActorOrientations(instigator, nonPlayerActor);
+        StartCoroutine(FaceActors(instigator, nonPlayerActor));
+        GetActorOrientations(instigator, nonPlayerActor);
         StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
 
@@ -96,7 +97,7 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void SetActorOrientations(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
+    void GetActorOrientations(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
     {
         if (Vector3.Dot(actorA.transform.position.normalized - actorB.transform.position.normalized, Vector3.right) <= 0f)
         {
@@ -107,6 +108,28 @@ public class DialogueManager : MonoBehaviour
         {
             actorA.dialogueOrientation = DialogueOrientation.Right;
             actorB.dialogueOrientation = DialogueOrientation.Left;
+        }
+    }
+
+    IEnumerator FaceActors(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
+    {
+        // Get angle needed to face actors toward on another.
+        float angle = Mathf.Atan2(actorB.transform.position.y - actorA.transform.position.y, actorB.transform.position.x - actorA.transform.position.x) * Mathf.Rad2Deg;
+
+        Quaternion actorATargetRot = Quaternion.Euler(0f, 0f, angle - 90f);
+        Quaternion actorBTargetRot = Quaternion.Euler(0f, 0f, angle + 90f);
+
+        float time = 0f;
+
+        // Rotate actors over time.
+        while (time < 1f)
+        {
+            actorA.transform.rotation = Quaternion.Slerp(actorA.transform.rotation, actorATargetRot, time);
+            actorB.transform.rotation = Quaternion.Slerp(actorB.transform.rotation, actorBTargetRot, time);
+
+            time += 0.12f;
+
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
