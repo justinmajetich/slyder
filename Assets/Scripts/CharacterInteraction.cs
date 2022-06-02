@@ -37,7 +37,7 @@ public class CharacterInteraction : MonoBehaviour
             {
                 if (hit.CompareTag("NPC"))
                 {
-                    dialogueManager.StartDialogue(actorSelf, hit.GetComponent<ExpressiveDialogueActor>());
+                    dialogueManager.StartDialogue(actorSelf, hit.GetComponentInParent<ExpressiveDialogueActor>());
                 }
             }
         }

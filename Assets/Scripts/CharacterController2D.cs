@@ -132,7 +132,7 @@ public class CharacterController2D : MonoBehaviour
                 
                 if (!isWaitingToInteract)
                 {
-                    StartCoroutine(WaitToInteract(hit.collider.gameObject.GetComponent<ExpressiveDialogueActor>()));
+                    StartCoroutine(WaitToInteract(hit.collider.gameObject.GetComponentInParent<ExpressiveDialogueActor>()));
                 }
             }
         }
