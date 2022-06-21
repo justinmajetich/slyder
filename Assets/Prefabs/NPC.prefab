@@ -153,7 +153,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812647755165203881}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.45, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3538322041112700368}
@@ -287,7 +287,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &2756115725579509629
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4037633958921737102
@@ -383,7 +383,6 @@ GameObject:
   - component: {fileID: 4037633958921737096}
   - component: {fileID: 1023606371}
   - component: {fileID: 1023606370}
-  - component: {fileID: 811739525}
   m_Layer: 9
   m_Name: NPC
   m_TagString: Untagged
@@ -460,79 +459,9 @@ MonoBehaviour:
   _portrait: {fileID: 0}
   _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
   _dialogueOffset: {x: 0, y: 0, z: 0}
-  eyesRenderer: {fileID: 1338720106397487296}
-  mouthRenderer: {fileID: 7220062175302192677}
-  bodySprites:
-  - {fileID: 21300000, guid: 6387eb543b29bb045b6392c6a26923dc, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eyeSprites:
-  - {fileID: 21300000, guid: a64c9348522540246b299265d5132c38, type: 3}
-  - {fileID: 21300000, guid: 94b2cda3a5200284aa8e962413962140, type: 3}
-  - {fileID: 0}
-  - {fileID: 21300000, guid: 605824eb3e839e940be3fc8defc31c3c, type: 3}
-  - {fileID: 0}
-  mouthSprites:
-  - {fileID: 21300000, guid: 08697dccd0ec14d409f3a594c6624699, type: 3}
-  - {fileID: 21300000, guid: cf6cb635de02f7d4bbfa065d524cb7e8, type: 3}
-  - {fileID: 21300000, guid: a6042ef4054f13b4780f7e9da4aa1c23, type: 3}
-  - {fileID: 21300000, guid: 5315991713f60b44686609ba8673da26, type: 3}
-  - {fileID: 0}
   leftUIAnchor: {fileID: 3115014325323166591}
   rightUIAnchor: {fileID: 28014228}
   dialogueOrientation: 0
---- !u!114 &811739525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037633958921737102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac29ccfa0b1b8184ebb96d8991cf3acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugUI: {fileID: 0}
-  bodyRenderer: {fileID: 7398406455531895467}
-  bodySprites:
-    N:
-      idle: {fileID: -95091146543114886, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    NE:
-      idle: {fileID: 504059257231052075, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    E:
-      idle: {fileID: -896238803642362722, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    SE:
-      idle: {fileID: -466218865811542823, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    S:
-      idle: {fileID: -6517643211851765415, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    SW:
-      idle: {fileID: 2752368492725856965, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    W:
-      idle: {fileID: 3482118290365249257, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
-    NW:
-      idle: {fileID: -6476156101207680754, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 0}
-      walkLeft: {fileID: 0}
 --- !u!1 &8046093171669767324
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +541,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8251857532925984615
@@ -624,6 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1903295644435988764}
+  - component: {fileID: 882409735}
   m_Layer: 7
   m_Name: Sprites
   m_TagString: Untagged
@@ -647,3 +577,183 @@ Transform:
   m_Father: {fileID: 5973877475822125352}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882409735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8251857532925984615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac29ccfa0b1b8184ebb96d8991cf3acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugUI: {fileID: 0}
+  charTransform: {fileID: 4037633958921737096}
+  bodyRenderer: {fileID: 7398406455531895467}
+  eyeRenderer: {fileID: 1338720106397487296}
+  mouthRenderer: {fileID: 7220062175302192677}
+  faceAnchor: {fileID: 7192729879981175108}
+  faceAnchorPositions:
+    N: {x: 0, y: 0}
+    NE: {x: 0, y: 0}
+    E: {x: 0, y: 0}
+    SE: {x: 0, y: 0}
+    S: {x: 0, y: 0}
+    SW: {x: 0, y: 0}
+    W: {x: 0, y: 0}
+    NW: {x: 0, y: 0}
+  characterSprites:
+    N:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    NE:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    E:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    SE:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    S:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    SW:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    W:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    NW:
+      body:
+        idle: {fileID: 0}
+        walkRight: {fileID: 0}
+        walkLeft: {fileID: 0}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}

@@ -1,30 +1,42 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using TMPro;
 using Pathfinding;
+using NodeCanvas.DialogueTrees;
 
 public class CharacterSpriteController : MonoBehaviour
 {
-    [Header("Debug")]
-    public TMP_Text debugUI;
-
     public enum Orientation
     {
         N, NE, E, SE, S, SW, W, NW, NA
     }
 
-    [Serializable]
-    public class BodySprites
+    public enum EmoteState
     {
-        public BodySpriteSet N = new BodySpriteSet();
-        public BodySpriteSet NE = new BodySpriteSet();
-        public BodySpriteSet E = new BodySpriteSet();
-        public BodySpriteSet SE = new BodySpriteSet();
-        public BodySpriteSet S = new BodySpriteSet();
-        public BodySpriteSet SW = new BodySpriteSet();
-        public BodySpriteSet W = new BodySpriteSet();
-        public BodySpriteSet NW = new BodySpriteSet();
+        Neutral,
+        Happy,
+        Sad
+    }
+
+    [Serializable]
+    public class CharacterSprites
+    {
+        public OrientedSprites N = new OrientedSprites();
+        public OrientedSprites NE = new OrientedSprites();
+        public OrientedSprites E = new OrientedSprites();
+        public OrientedSprites SE = new OrientedSprites();
+        public OrientedSprites S = new OrientedSprites();
+        public OrientedSprites SW = new OrientedSprites();
+        public OrientedSprites W = new OrientedSprites();
+        public OrientedSprites NW = new OrientedSprites();
+    }
+
+    [Serializable]
+    public class OrientedSprites
+    {
+        public BodySpriteSet body;
+        public EyeSpriteSet eye;
+        public MouthSpriteSet mouth;
     }
 
     [Serializable]
@@ -35,24 +47,105 @@ public class CharacterSpriteController : MonoBehaviour
         public Sprite walkLeft;
     }
 
-    [Header("Sprites")]
-    public SpriteRenderer bodyRenderer;
-    public BodySprites bodySprites = new BodySprites();
-    BodySpriteSet currentSpriteSet;
+    [Serializable]
+    public class EyeSpriteSet
+    {
+        public Sprite neutral;
+        public Sprite happy;
+        public Sprite sad;
+        public Sprite neutralBlinking;
+        public Sprite happyBlinking;
+        public Sprite sadBlinking;
 
+    }
+
+    [Serializable]
+    public class MouthSpriteSet
+    {
+        public Sprite neutral;
+        public Sprite happy;
+        public Sprite sad;
+        public Sprite neutralTalking;
+        public Sprite happyTalking;
+        public Sprite sadTalking;
+    }
+
+    [Serializable]
+    public class FaceAnchorPositions
+    {
+        public Vector2 N;
+        public Vector2 NE;
+        public Vector2 E;
+        public Vector2 SE;
+        public Vector2 S;
+        public Vector2 SW;
+        public Vector2 W;
+        public Vector2 NW;
+    }
+
+    [Header("Character Transform")]
+    public Transform charTransform;
+
+    [Header("Sprite Renderers")]
+    public SpriteRenderer bodyRenderer;
+    public SpriteRenderer eyeRenderer;
+    public SpriteRenderer mouthRenderer;
+
+    [Header("Face Anchoring")]
+    [SerializeField]
+    Transform faceAnchor;
+
+    [SerializeField, Tooltip("Position at which to anchor the face renderer for each body rotation.")]
+    FaceAnchorPositions faceAnchorPositions = new FaceAnchorPositions();
+
+    [Header("Sprites")]
+    [SerializeField]
+    CharacterSprites characterSprites = new CharacterSprites();
+    OrientedSprites activeSprites;
+
+    bool isActiveActor = false;
 
     [Header("Animation Parameters")]
+    [Range(1, 2), Tooltip("Increases the duration of each talk cycle.")]
+    public float talkSpeedModifier = 1.5f;
+
     float maxVelocity;
     float velocity;
-    bool isWalking = false;
 
+    // ----Character State----
     Orientation orientation;
     Orientation lastOrientation = Orientation.NA;
 
     Vector2 lastPosition;
     float lastZRotation;
 
+    EmoteState activeEmoteState = EmoteState.Neutral;
 
+    bool isWalking = false;
+    bool isSteppingLeft = false;
+    bool isSteppingRight = false;
+
+    bool isBlinking = false;
+
+    bool isTalking = false;
+    bool mouthIsOpen = false;
+
+
+    void OnEnable()
+    {
+        ExpressionTagParser.OnEmotionExpressed += OnEmotionExpressed;
+        DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
+        DialogueManager.OnDialogueWillContinue += OnDialogueWillContinue;
+        SubtitleAnimator.OnTalk += OnTalk;
+    }
+
+    void OnDisable()
+    {
+        ExpressionTagParser.OnEmotionExpressed -= OnEmotionExpressed;
+        DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
+        DialogueManager.OnDialogueWillContinue -= OnDialogueWillContinue;
+        SubtitleAnimator.OnTalk -= OnTalk;
+    }
 
     private void Start()
     {
@@ -61,32 +154,33 @@ public class CharacterSpriteController : MonoBehaviour
             maxVelocity = GetComponent<AIPath>().maxSpeed;
         }
 
-        lastZRotation = transform.eulerAngles.z;
-        lastPosition = transform.position;
+        lastZRotation = charTransform.eulerAngles.z;
+        lastPosition = charTransform.position;
 
-        UpdateOrientation();
-        StartCoroutine(WalkCycleWithIdle());
+        UpdateCharacterOrientation();
+        StartCoroutine(Walking());
+        StartCoroutine(Blinking());
     }
 
     void Update()
     {
         // If character has changed rotation...
-        if (transform.eulerAngles.z != lastZRotation)
+        if (charTransform.eulerAngles.z != lastZRotation)
         {
-            UpdateOrientation();
+            UpdateCharacterOrientation();
 
-            lastZRotation = transform.eulerAngles.z;
+            lastZRotation = charTransform.eulerAngles.z;
         }
 
-        velocity = (((Vector2)transform.position - lastPosition) / Time.deltaTime).magnitude;
+        velocity = (((Vector2)charTransform.position - lastPosition) / Time.deltaTime).magnitude;
         isWalking = velocity > 0.01f;
 
-        lastPosition = transform.position;
+        lastPosition = charTransform.position;
     }
 
-    void UpdateOrientation()
+    void UpdateCharacterOrientation()
     {
-        orientation = (transform.eulerAngles.z) switch
+        orientation = (charTransform.eulerAngles.z) switch
         {
             float z when z <= 22.5 || z > 337.5 => Orientation.N,
             float z when z <= 337.5 && z > 292.5 => Orientation.NE,
@@ -101,69 +195,194 @@ public class CharacterSpriteController : MonoBehaviour
 
         if (orientation == Orientation.NA)
         {
-            Debug.Log("Rotation out of range: " + transform.eulerAngles.z.ToString());
+            Debug.Log("Rotation out of range: " + charTransform.eulerAngles.z.ToString());
         }
         else
         {
+            // If orientation has changed or is not assigned...
             if (lastOrientation == Orientation.NA || orientation != lastOrientation)
             {
-                SetSpriteToOrientation();
+                activeSprites = orientation switch
+                {
+                    Orientation.N => characterSprites.N,
+                    Orientation.NE => characterSprites.NE,
+                    Orientation.E => characterSprites.E,
+                    Orientation.SE => characterSprites.SE,
+                    Orientation.S => characterSprites.S,
+                    Orientation.SW => characterSprites.SW,
+                    Orientation.W => characterSprites.W,
+                    _ => characterSprites.NW
+                };
+
+                // Reposition face renderer for new orientation.
+                faceAnchor.localPosition = orientation switch
+                {
+                    Orientation.N => faceAnchorPositions.N,
+                    Orientation.NE => faceAnchorPositions.NE,
+                    Orientation.E => faceAnchorPositions.E,
+                    Orientation.SE => faceAnchorPositions.SE,
+                    Orientation.S => faceAnchorPositions.S,
+                    Orientation.SW => faceAnchorPositions.SW,
+                    Orientation.W => faceAnchorPositions.W,
+                    _ => faceAnchorPositions.NW
+                };
+
+                SetBodySprite();
+                SetEyeSprite();
+                SetMouthSprite();
+
                 lastOrientation = orientation;
             }
         }
     }
 
-    void SetSpriteToOrientation()
+    void SetBodySprite()
     {
-        currentSpriteSet = orientation switch
+        if (isSteppingLeft)
         {
-            Orientation.N => bodySprites.N,
-            Orientation.NE => bodySprites.NE,
-            Orientation.E => bodySprites.E,
-            Orientation.SE => bodySprites.SE,
-            Orientation.S => bodySprites.S,
-            Orientation.SW => bodySprites.SW,
-            Orientation.W => bodySprites.W,
-            _ => bodySprites.NW
-        };
-
-        bodyRenderer.sprite = currentSpriteSet.idle;
+            bodyRenderer.sprite = activeSprites.body.walkLeft;
+        }
+        else if (isSteppingRight)
+        {
+            bodyRenderer.sprite = activeSprites.body.walkRight;
+        }
+        else
+        {
+            bodyRenderer.sprite = activeSprites.body.idle;
+        }
     }
 
-    IEnumerator WalkCycleWithIdle()
+    void SetEyeSprite()
+    {
+        eyeRenderer.sprite = activeEmoteState switch
+        {
+            EmoteState.Happy => isBlinking ? activeSprites.eye.happyBlinking : activeSprites.eye.happy,
+            EmoteState.Sad => isBlinking ? activeSprites.eye.sadBlinking : activeSprites.eye.sad,
+            _ => isBlinking ? activeSprites.eye.neutralBlinking : activeSprites.eye.neutral
+        };
+    }
+
+    void SetMouthSprite()
+    {
+        mouthRenderer.sprite = activeEmoteState switch
+        {
+            EmoteState.Happy => mouthIsOpen ? activeSprites.mouth.happyTalking : activeSprites.mouth.happy,
+            EmoteState.Sad => mouthIsOpen ? activeSprites.mouth.sadTalking : activeSprites.mouth.sad,
+            _ => mouthIsOpen ? activeSprites.mouth.neutralTalking : activeSprites.mouth.neutral
+        };
+    }
+
+    void OnSubtitlesRequest(SubtitlesRequestInfo info)
+    {
+        // If this actor is the speaker...
+        if (info.actor == GetComponentInParent<IDialogueActor>())
+        {
+            isActiveActor = true;
+        }
+    }
+
+    void OnEmotionExpressed(int emoteKey)
+    {
+        if (isActiveActor)
+        {
+            activeEmoteState = (EmoteState)emoteKey;
+            SetEyeSprite();
+            SetMouthSprite();
+        }
+    }
+
+    private void OnTalk(float speed)
+    {
+        if (!isTalking && isActiveActor)
+        {
+            StartCoroutine(Talking(speed));
+        }
+    }
+
+    private void OnDialogueWillContinue()
+    {
+        // Reset emote state to idle.
+        if (isActiveActor)
+        {
+            activeEmoteState = EmoteState.Neutral;
+            SetEyeSprite();
+            SetMouthSprite();
+            isActiveActor = false;
+        }
+    }
+
+    IEnumerator Talking(float speed)
+    {
+        // Add small randomization to duration of each talk cycle.
+        float talkSpeed = speed * (talkSpeedModifier + UnityEngine.Random.Range(0.0f, 0.5f));
+
+        isTalking = true;
+
+        mouthIsOpen = true;
+        SetMouthSprite();
+
+        yield return new WaitForSeconds(talkSpeed);
+
+        mouthIsOpen = false;
+        SetMouthSprite();
+
+        yield return new WaitForSeconds(talkSpeed);
+
+        isTalking = false;
+    }
+
+    IEnumerator Walking()
     {
         bool lastStepWasRight = true;
-        bool isIdleFrame = true;
 
         while (true)
         {
             while (isWalking)
             {
-                if (isIdleFrame && lastStepWasRight)
+                if (!isSteppingLeft && !isSteppingRight && lastStepWasRight)
                 {
-                    bodyRenderer.sprite = currentSpriteSet.walkLeft;
-                    isIdleFrame = false;
                     lastStepWasRight = false;
+                    isSteppingLeft = true;
+                    SetBodySprite();
                 }
-                else if (isIdleFrame && !lastStepWasRight)
+                else if (!isSteppingLeft && !isSteppingRight && !lastStepWasRight)
                 {
-                    bodyRenderer.sprite = currentSpriteSet.walkRight;
-                    isIdleFrame = false;
                     lastStepWasRight = true;
+                    isSteppingRight = true;
+                    SetBodySprite();
                 }
                 else
                 {
-                    bodyRenderer.sprite = currentSpriteSet.idle;
-                    isIdleFrame = true;
+                    isSteppingLeft = false;
+                    isSteppingRight = false;
+                    SetBodySprite();
                 }
 
                 // Modulate duration of step intervals relative to character velocity.
                 yield return new WaitForSeconds(Mathf.Clamp((maxVelocity - velocity) / 10f, 0.175f, maxVelocity));
             }
 
-            bodyRenderer.sprite = currentSpriteSet.idle;
+            isSteppingLeft = false;
+            isSteppingRight = false;
+            SetBodySprite();
 
             yield return null;
+        }
+    }
+
+    IEnumerator Blinking()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3f, 6f));
+
+            isBlinking = true;
+            SetEyeSprite();
+
+            yield return new WaitForSeconds(0.15f);
+
+            isBlinking = false;
+            SetEyeSprite();
         }
     }
 }

@@ -971,6 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actorName: {fileID: 1383394843}
+  dialogueUI: {fileID: 1354366518}
   subtitleView: {fileID: 1471080218}
   subtitleText: {fileID: 1863564050}
   animator: {fileID: 1863564053}
@@ -1279,8 +1280,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2128513305}
   m_HandleRect: {fileID: 2128513304}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.9999988
+  m_Size: 0.6741172
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

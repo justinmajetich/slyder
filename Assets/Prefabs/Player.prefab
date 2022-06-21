@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166566055}
+  - component: {fileID: 1325843004}
   m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
@@ -32,6 +33,186 @@ Transform:
   m_Father: {fileID: 3401052988199797934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325843004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166566054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac29ccfa0b1b8184ebb96d8991cf3acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charTransform: {fileID: 3935341403930731116}
+  bodyRenderer: {fileID: 2065057916}
+  eyeRenderer: {fileID: 736091651}
+  mouthRenderer: {fileID: 1254977738}
+  faceAnchor: {fileID: 494928371}
+  faceAnchorPositions:
+    N: {x: 0, y: 0}
+    NE: {x: 0.2907, y: 1.6579}
+    E: {x: 0.173, y: 1.646}
+    SE: {x: 0.1125, y: 1.611}
+    S: {x: 0.0046, y: 1.6108}
+    SW: {x: -0.1125, y: 1.611}
+    W: {x: -0.173, y: 1.646}
+    NW: {x: -0.2907, y: 1.66}
+  characterSprites:
+    N:
+      body:
+        idle: {fileID: 6220549629556736333, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -741390069849828990, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 3095109398327736221, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralBlinking: {fileID: 0}
+        happyBlinking: {fileID: 0}
+        sadBlinking: {fileID: 0}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    NE:
+      body:
+        idle: {fileID: 3436911549397364450, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -2210943056041066179, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: -6122351841710587970, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -6557006624853749135, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: -938073626170766548, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -1696024717431797916, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: -8339897675065351876, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: 8466378919628315011, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: 3598467774972597614, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+    E:
+      body:
+        idle: {fileID: -7045160345864077934, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: 8372619752667232744, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 7827551345177321926, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: 7828801648439324289, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 4244198772159424967, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: 2521018751533586102, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: 6082629103199716341, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: 1894961724662861511, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: 5849166736804946398, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: 7723223062335345266, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: -8599598217175699303, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -8460219035916787576, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralTalking: {fileID: 9017315484241068528, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyTalking: {fileID: -1597247499848475077, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadTalking: {fileID: 1643827504595656831, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+    SE:
+      body:
+        idle: {fileID: -4572347937810984893, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -5929028357962373212, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 8972741845522629435, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -2407045209764305878, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 5403285213498390236, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -2780222065482868453, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: -5813964097605116851, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: -6751450805575108299, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: 7736857202947846810, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: 7234127187497154432, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: -3356580648196448608, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -1946057107527689297, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralTalking: {fileID: 5270179389955448733, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyTalking: {fileID: -5913114853640186228, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadTalking: {fileID: 2874027064184771272, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+    S:
+      body:
+        idle: {fileID: 1085354364730302710, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: 2732192711859600910, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 8727619565549189655, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -5387709886856611288, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: -1107196593871371064, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: 194825269776602163, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: -4269540341372422548, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: 4673280215268809352, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: 5981929871921072131, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: -6048947502563875861, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 4870205727728242136, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -7969606994324560388, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralTalking: {fileID: -7901761642989469447, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyTalking: {fileID: -2873427547610118618, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadTalking: {fileID: -6645710490996616100, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+    SW:
+      body:
+        idle: {fileID: -5890249011859649129, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -6435908795623898653, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: -7459679265105257528, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -3147510607048513778, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 8485449853017061533, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -3624131486927296633, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: 7243096231449677473, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: -5888869760043462988, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: -6351468273531861065, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: 2904842968944804468, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 2987469596971987038, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -3392876847818843512, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralTalking: {fileID: -4827296509981106830, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyTalking: {fileID: 6624337892242261616, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadTalking: {fileID: -3457373404130780961, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+    W:
+      body:
+        idle: {fileID: -6552075691506080524, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -1546584474791415353, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 3738861245765970219, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -2934352954655522300, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 2610601822080061446, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -4167894962654995787, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: 7761503099621787395, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: 4688447853186531408, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: 240984838762864100, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: -1338554623358853263, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: -4639339399073848823, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: -5474543686995384295, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralTalking: {fileID: 399124371691469154, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyTalking: {fileID: -4298516691824761270, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadTalking: {fileID: -3408514750173346996, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+    NW:
+      body:
+        idle: {fileID: 7085142335308349712, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkRight: {fileID: -1078075547953215458, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+        walkLeft: {fileID: 7092779030623782504, guid: 04a035f575b914f429a37190087af6a8, type: 3}
+      eye:
+        neutral: {fileID: -1799543968189565281, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happy: {fileID: 3896844301576459911, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sad: {fileID: 6548119277650876889, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        neutralBlinking: {fileID: -8718033615867931894, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        happyBlinking: {fileID: 870400366305047161, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+        sadBlinking: {fileID: -8501651723414657183, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
+      mouth:
+        neutral: {fileID: 0}
+        happy: {fileID: 0}
+        sad: {fileID: 0}
+        neutralTalking: {fileID: 0}
+        happyTalking: {fileID: 0}
+        sadTalking: {fileID: 0}
+  talkSpeedModifier: 1.5
 --- !u!1 &494928370
 GameObject:
   m_ObjectHideFlags: 0
@@ -47,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &494928371
 Transform:
   m_ObjectHideFlags: 0
@@ -56,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494928370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.45, z: 0}
+  m_LocalPosition: {x: -0.173, y: 1.646, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 736091650}
@@ -135,12 +316,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a64c9348522540246b299265d5132c38, type: 3}
+  m_Sprite: {fileID: -2934352954655522300, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.48, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -201,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254977736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 494928371}
@@ -247,12 +428,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 08697dccd0ec14d409f3a594c6624699, type: 3}
+  m_Sprite: {fileID: -4639339399073848823, guid: f2a9d0995d47deb44ba5a795b542cb63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.28, y: 0.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -359,12 +540,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -6517643211851765415, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
+  m_Sprite: {fileID: -6552075691506080524, guid: 04a035f575b914f429a37190087af6a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.692, y: 2.056}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -456,7 +637,6 @@ GameObject:
   - component: {fileID: 1112647619}
   - component: {fileID: 1112647620}
   - component: {fileID: 1112647626}
-  - component: {fileID: 1573888754}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -591,29 +771,6 @@ MonoBehaviour:
   _portrait: {fileID: 0}
   _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
   _dialogueOffset: {x: 0, y: 0, z: 0}
-  eyesRenderer: {fileID: 736091651}
-  mouthRenderer: {fileID: 1254977738}
-  bodySprites:
-  - {fileID: 21300000, guid: 6387eb543b29bb045b6392c6a26923dc, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  eyeSprites:
-  - {fileID: 21300000, guid: a64c9348522540246b299265d5132c38, type: 3}
-  - {fileID: 21300000, guid: 94b2cda3a5200284aa8e962413962140, type: 3}
-  - {fileID: 21300000, guid: a64c9348522540246b299265d5132c38, type: 3}
-  - {fileID: 21300000, guid: 605824eb3e839e940be3fc8defc31c3c, type: 3}
-  - {fileID: 0}
-  mouthSprites:
-  - {fileID: 21300000, guid: 08697dccd0ec14d409f3a594c6624699, type: 3}
-  - {fileID: 21300000, guid: cf6cb635de02f7d4bbfa065d524cb7e8, type: 3}
-  - {fileID: 21300000, guid: a6042ef4054f13b4780f7e9da4aa1c23, type: 3}
-  - {fileID: 21300000, guid: 5315991713f60b44686609ba8673da26, type: 3}
-  - {fileID: 0}
   leftUIAnchor: {fileID: 1526344756}
   rightUIAnchor: {fileID: 1109489093}
   dialogueOrientation: 0
@@ -723,53 +880,6 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
---- !u!114 &1573888754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3935341403930731118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac29ccfa0b1b8184ebb96d8991cf3acb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugUI: {fileID: 0}
-  bodyRenderer: {fileID: 2065057916}
-  bodySprites:
-    N:
-      idle: {fileID: -95091146543114886, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 1732970686098913134, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: -4037987471715921710, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    NE:
-      idle: {fileID: 504059257231052075, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 690251723752555561, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: -3098214711944794991, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    E:
-      idle: {fileID: -896238803642362722, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: -484013358382320858, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: 8028979268710352588, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    SE:
-      idle: {fileID: -466218865811542823, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 7237900161977813786, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: 5297715143158536547, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    S:
-      idle: {fileID: -6517643211851765415, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: -1931078176335577022, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: 3111496574761459820, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    SW:
-      idle: {fileID: 2752368492725856965, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: -688161316090935786, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: 5269798609938894401, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    W:
-      idle: {fileID: 3482118290365249257, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: -8747549747447295875, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: -6589697112147077895, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-    NW:
-      idle: {fileID: -6476156101207680754, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkRight: {fileID: 4608201216672972700, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
-      walkLeft: {fileID: 6970433785627653162, guid: 08e69025e7aac7b4f90b79f1a5ce3e6e, type: 3}
 --- !u!1 &4096172564172760180
 GameObject:
   m_ObjectHideFlags: 0
