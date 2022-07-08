@@ -20,20 +20,20 @@ MonoBehaviour:
     printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing
     and typesetting industry."}},{"statement":{"_text":"I''d rather not say but to
     say would be to surrender and i don''t think that"}}],"_position":{"x":1154.0,"y":825.0},"$type":"NodeCanvas.DialogueTrees.MultipleChoiceNode","$id":"3"},{"statement":{"_text":"Lorem
-    Ipsum is simply dummy text of the printing and typesetting industry."},"_position":{"x":807.0,"y":1053.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"Lorem
+    Ipsum is simply dummy text of the printing and typesetting industry."},"_position":{"x":703.0,"y":1098.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"4"},{"statement":{"_text":"Lorem
     Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-    is simply dummy text of the printing and typesetting industry."},"_position":{"x":1178.0,"y":1112.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"_position":{"x":1562.0,"y":1020.0},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"NPC","_id":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_actorObject":1}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
+    is simply dummy text of the printing and typesetting industry."},"_position":{"x":1201.0,"y":1171.0},"$type":"NodeCanvas.DialogueTrees.StatementNode","$id":"5"},{"_position":{"x":1562.0,"y":1020.0},"$type":"NodeCanvas.DialogueTrees.FinishNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.DialogueTrees.DTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.DialogueTrees.DTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"actorParameters":[{"_keyName":"Mom","_id":"e72cfab4-f897-4aac-9808-d7a6761f69f3","_actorObject":1}],"$type":"NodeCanvas.DialogueTrees.DialogueTree+DerivedSerializationData"}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 0}
   _graphSource:
-    _version: 3.22
+    _version: 3.21
     _category: 
     _comments: 
-    _translation: {x: -299.99985, y: -77.99996}
+    _translation: {x: -433, y: -380}
     _zoomFactor: 1
   _haltSerialization: 0
   actorParameters:
-  - _keyName: NPC
+  - _keyName: Mom
     _id: e72cfab4-f897-4aac-9808-d7a6761f69f3
     _actorObject: {fileID: 0}

@@ -1630,10 +1630,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleText: {fileID: 1863564050}
   speeds:
-    verySlow: 0.1
-    slow: 0.07
+    verySlow: 0.5
+    slow: 0.1
     normal: 0.05
-    fast: 0.03
+    fast: 0.02
     veryFast: 0.01
   delays:
     sentenceDelayModifier: 2.5

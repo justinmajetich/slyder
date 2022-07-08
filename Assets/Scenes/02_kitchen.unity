@@ -1531,6 +1531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1023606370, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
+      propertyPath: _name
+      value: Mom
+      objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737096, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1577,7 +1581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4037633958921737102, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Mom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc1ef74ad2792416da6399aaff73ecab, type: 3}
@@ -3984,6 +3988,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: dialogues.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: d5b5fdba316b2c24cb843dc320cb622f, type: 2}
     - target: {fileID: 95570198044152196, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: m_Name
       value: DialogueManager

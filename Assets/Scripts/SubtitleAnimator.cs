@@ -12,11 +12,11 @@ public class SubtitleAnimator : MonoBehaviour
     [Serializable]
     public class SubtitleSpeeds
     {
-        public float verySlow = 0.15f;
-        public float slow = 0.1f;
-        public float normal = 0.05f;
-        public float fast = 0.03f;
-        public float veryFast = 0.01f;
+        public float verySlow = .9f;   // 0.15f;
+        public float slow = 0.8f;        // 0.1f;  
+        public float normal = 0.6f;     // 0.05f; 
+        public float fast = 0.4f;       // 0.03f;
+        public float veryFast = 0.02f;   // 0.01f;
     }
 
     [Serializable]
