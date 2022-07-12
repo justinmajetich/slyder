@@ -6,6 +6,8 @@ using NodeCanvas.DialogueTrees;
 
 public class CharacterSpriteController : MonoBehaviour
 {
+    public static event Action OnPlayerDidStep;
+
     public enum Orientation
     {
         N, NE, E, SE, S, SW, W, NW, NA
@@ -86,6 +88,8 @@ public class CharacterSpriteController : MonoBehaviour
     [Header("Character Transform")]
     public Transform charTransform;
 
+    public bool lockRotation = false;
+
     [Header("Sprite Renderers")]
     public SpriteRenderer bodyRenderer;
     public SpriteRenderer eyeRenderer;
@@ -165,7 +169,7 @@ public class CharacterSpriteController : MonoBehaviour
     void Update()
     {
         // If character has changed rotation...
-        if (charTransform.eulerAngles.z != lastZRotation)
+        if (!lockRotation && charTransform.eulerAngles.z != lastZRotation)
         {
             UpdateCharacterOrientation();
 
@@ -344,18 +348,23 @@ public class CharacterSpriteController : MonoBehaviour
                     lastStepWasRight = false;
                     isSteppingLeft = true;
                     SetBodySprite();
+                    OnPlayerDidStep?.Invoke();
+
                 }
                 else if (!isSteppingLeft && !isSteppingRight && !lastStepWasRight)
                 {
                     lastStepWasRight = true;
                     isSteppingRight = true;
                     SetBodySprite();
+                    OnPlayerDidStep?.Invoke();
+
                 }
                 else
                 {
                     isSteppingLeft = false;
                     isSteppingRight = false;
                     SetBodySprite();
+
                 }
 
                 // Modulate duration of step intervals relative to character velocity.
