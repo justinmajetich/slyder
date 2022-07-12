@@ -1,0 +1,627 @@
+fileFormatVersion: 2
+guid: 59478e014e0136d4d9b2f124f290cdb5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9083143804687392471
+    second: bedroom_window
+  - first:
+      213: 383928397148063542
+    second: bedroom_dresser
+  - first:
+      213: 4451071877540617589
+    second: bedroom_bed
+  - first:
+      213: 7689431905111944486
+    second: bedroom_nightstand
+  - first:
+      213: 8868836969738279027
+    second: bedroom_chair
+  - first:
+      213: -7420993893731482532
+    second: bedroom_lamp
+  - first:
+      213: 5775671959642027866
+    second: bedroom_trash_bin
+  - first:
+      213: 8503932134695560220
+    second: bedroom_plant_2
+  - first:
+      213: 208843982133268023
+    second: bedroom_desk
+  - first:
+      213: -4603166920957530385
+    second: bedroom_plant_0
+  - first:
+      213: -2693091021423412203
+    second: bedroom_plant_1
+  - first:
+      213: -3145844812838924602
+    second: bedroom_poster_0
+  - first:
+      213: -2978773008483770634
+    second: bedroom_poster_2
+  - first:
+      213: 5997023273535148493
+    second: bedroom_magazine
+  - first:
+      213: -3268258394372732170
+    second: bedroom_sprite_sheet_01_2K_14
+  - first:
+      213: 1092397652119397575
+    second: bedroom_closet
+  - first:
+      213: -3397302264904862883
+    second: bedroom_pen_holder
+  - first:
+      213: 4109795197173309050
+    second: bedroom_poster_1
+  - first:
+      213: -712327780833383836
+    second: bedroom_pen_1
+  - first:
+      213: 6292548318087789838
+    second: bedroom_pen_0
+  - first:
+      213: -5989364855497454762
+    second: bedroom_background_1
+  - first:
+      213: -7271360282254241186
+    second: bedroom_background_0
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 160
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bedroom_window
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3281
+        width: 408
+        height: 814
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92161dd85d032f180800000000000000
+      internalID: -9083143804687392471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_dresser
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 3309
+        width: 588
+        height: 780
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6370233d7dcf35500800000000000000
+      internalID: 383928397148063542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_bed
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 3135
+        width: 1138
+        height: 958
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d1a823a4265cd30800000000000000
+      internalID: 4451071877540617589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_nightstand
+      rect:
+        serializedVersion: 2
+        x: 2189
+        y: 3667
+        width: 340
+        height: 420
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62da0ccc39956ba60800000000000000
+      internalID: 7689431905111944486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_chair
+      rect:
+        serializedVersion: 2
+        x: 2553
+        y: 3567
+        width: 298
+        height: 522
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3781a102c30741b70800000000000000
+      internalID: 8868836969738279027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_lamp
+      rect:
+        serializedVersion: 2
+        x: 2873
+        y: 3805
+        width: 188
+        height: 270
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c54cacb2f55530990800000000000000
+      internalID: -7420993893731482532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_trash_bin
+      rect:
+        serializedVersion: 2
+        x: 3091
+        y: 3899
+        width: 134
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a57b5a5eb0f472050800000000000000
+      internalID: 5775671959642027866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_plant_2
+      rect:
+        serializedVersion: 2
+        x: 3227
+        y: 3881
+        width: 154
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c14ee828839040670800000000000000
+      internalID: 8503932134695560220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_desk
+      rect:
+        serializedVersion: 2
+        x: 3389
+        y: 3379
+        width: 700
+        height: 710
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73e0888ce76f5e200800000000000000
+      internalID: 208843982133268023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_plant_0
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 3353
+        width: 170
+        height: 294
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee6f72f2144e10c0800000000000000
+      internalID: -4603166920957530385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_plant_1
+      rect:
+        serializedVersion: 2
+        x: 2527
+        y: 2929
+        width: 390
+        height: 596
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c73401cf730aad0800000000000000
+      internalID: -2693091021423412203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_poster_0
+      rect:
+        serializedVersion: 2
+        x: 3005
+        y: 3277
+        width: 230
+        height: 504
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce0b346fc6b754d0800000000000000
+      internalID: -3145844812838924602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_poster_2
+      rect:
+        serializedVersion: 2
+        x: 3339
+        y: 2927
+        width: 300
+        height: 438
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe9dc22bb549a6d0800000000000000
+      internalID: -2978773008483770634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_magazine
+      rect:
+        serializedVersion: 2
+        x: 2189
+        y: 3153
+        width: 216
+        height: 174
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc110d8c4e4b93350800000000000000
+      internalID: 5997023273535148493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_closet
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 2067
+        width: 574
+        height: 1142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c42c0870e9f82f00800000000000000
+      internalID: 1092397652119397575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_pen_holder
+      rect:
+        serializedVersion: 2
+        x: 2423
+        y: 3171
+        width: 78
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5337b9f69b5ad0d0800000000000000
+      internalID: -3397302264904862883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_poster_1
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 2951
+        width: 154
+        height: 314
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7e1f1b05fce80930800000000000000
+      internalID: 4109795197173309050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_pen_1
+      rect:
+        serializedVersion: 2
+        x: 2403
+        y: 3055
+        width: 52
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46aa8cb48ad4d16f0800000000000000
+      internalID: -712327780833383836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_pen_0
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 3017
+        width: 32
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0dba9f1b5f935750800000000000000
+      internalID: 6292548318087789838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_background_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 742
+        height: 2048
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65b8ddd956081eca0800000000000000
+      internalID: -5989364855497454762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bedroom_background_0
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 13
+        width: 3334
+        height: 2894
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e521a5e3950f61b90800000000000000
+      internalID: -7271360282254241186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
