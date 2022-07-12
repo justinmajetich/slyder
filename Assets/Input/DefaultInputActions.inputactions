@@ -6,27 +6,18 @@
             "id": "c235cebe-c76b-4ed5-941f-e0cc958f5a76",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "593792bc-e735-4b02-8b0c-1e18be637555",
-                    "expectedControlType": "Dpad",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Interact",
+                    "name": "Click",
                     "type": "Button",
-                    "id": "7b348230-8db9-427b-9e57-0ec2f557a8d2",
+                    "id": "aa96e174-cab4-4ec3-ae86-fd3f53c94343",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Click",
+                    "name": "ToggleMenu",
                     "type": "Button",
-                    "id": "aa96e174-cab4-4ec3-ae86-fd3f53c94343",
+                    "id": "cfc08214-8563-4949-8900-be32c37b38db",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -36,78 +27,51 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "f14d7d27-8de7-4147-b697-9686be1a4dc5",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseAndKeyboard",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "2D Vector",
-                    "id": "bb1dc4c2-1d2f-47bd-8031-b5cf65557d23",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "66d3a9c8-a4a4-480e-b0b1-c3dfa1ba71e3",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseAndKeyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "6e761400-15ec-4ab6-a485-f869c9bfcbfd",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseAndKeyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "9389b843-d8b3-4f42-a8ee-f716bb6f2ca4",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseAndKeyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "c63b3a04-dc10-4c67-8b57-c7bb013a510d",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "MouseAndKeyboard",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "",
                     "id": "f47b5e5d-9da1-4a78-8a51-9d8177480c35",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "MouseAndKeyboard",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b96a2432-1d54-4a3e-9b9d-21ff264e71a1",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "2f8704eb-f307-4e93-af22-be70007c668b",
+            "actions": [
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "6ccca9f4-6e4f-41e7-b99e-5a202f14ba58",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8038592c-bbc3-4587-986d-84aacb96683a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
