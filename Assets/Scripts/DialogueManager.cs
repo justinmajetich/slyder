@@ -11,7 +11,9 @@ public class DialogueManager : MonoBehaviour
     public static event Action OnDialogueWillContinue;
 
     public DialogueTreeController controller;
-    public DialogueTree[] dialogues = new DialogueTree[0];
+    public DialogueTree dialogueAsset;
+
+    bool cameraInZoomedPosition = false;
 
     SubtitlesRequestInfo activeSubtitleInfo;
 
@@ -21,6 +23,8 @@ public class DialogueManager : MonoBehaviour
         DialogueTree.OnSubtitlesRequest += OnSubtitlesRequest;
         DialogueTree.OnDialogueFinished += OnDialogueFinished;
         SubtitleAnimator.OnAnimationComplete += OnSubtitleAnimationComplete;
+        CharacterController2D.OnClickedStartDialogue += OnStartDialogue;
+        CameraAnimation.OnCameraZoomed += OnCameraInPosition;
     }
 
     void OnDisable()
@@ -28,6 +32,8 @@ public class DialogueManager : MonoBehaviour
         DialogueTree.OnSubtitlesRequest -= OnSubtitlesRequest;
         DialogueTree.OnDialogueFinished -= OnDialogueFinished;
         SubtitleAnimator.OnAnimationComplete -= OnSubtitleAnimationComplete;
+        CharacterController2D.OnClickedStartDialogue -= OnStartDialogue;
+        CameraAnimation.OnCameraZoomed -= OnCameraInPosition;
     }
 
     void Start()
@@ -35,11 +41,9 @@ public class DialogueManager : MonoBehaviour
         controller = GetComponent<DialogueTreeController>();
     }
 
-    // Eventually, this function would take a dictionary of conditions
-    // to be run against the game state in order to retrieve the appropriate dialogue tree.
-    public void StartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
+    void OnStartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
     {
-        StartCoroutine(FaceActors(instigator, nonPlayerActor));
+        //StartCoroutine(FaceActors(instigator, nonPlayerActor));
         GetActorOrientations(instigator, nonPlayerActor);
         StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
@@ -68,32 +72,43 @@ public class DialogueManager : MonoBehaviour
         activeSubtitleInfo.Continue();
     }
 
+    void OnCameraInPosition()
+    {
+        cameraInZoomedPosition = true;
+    }
+
     void OnDialogueFinished(DialogueTree tree)
     {
+        cameraInZoomedPosition = false;
         StartCoroutine(UnloadDialogueUI());
     }
 
     IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
-        if (!SceneManager.GetSceneByName("DialogueUI").isLoaded)
+        while (!cameraInZoomedPosition)
         {
-            yield return SceneManager.LoadSceneAsync("DialogueUI", LoadSceneMode.Additive);
+            yield return null;
         }
 
-        // Query for appropriate dialogue asset ID based on game state and conditions.
+        if (!SceneManager.GetSceneByBuildIndex((int)Constants.Scene.DialogueUI).isLoaded)
+        {
+            yield return SceneManager.LoadSceneAsync((int)Constants.Scene.DialogueUI, LoadSceneMode.Additive);
+        }
 
         // Load actor references into dialogue asset.
-        dialogues[0].SetActorReference(nonPlayerActor.name, nonPlayerActor);
+        dialogueAsset.SetActorReference(nonPlayerActor.name, nonPlayerActor);
+
+
 
         // Start dialogue tree.
-        controller.StartDialogue(dialogues[0], instigator, null);
+        controller.StartDialogue(dialogueAsset, instigator, null);
     }
 
     IEnumerator UnloadDialogueUI()
     {
-        if (SceneManager.GetSceneByName("DialogueUI").isLoaded)
+        if (SceneManager.GetSceneByBuildIndex((int)Constants.Scene.DialogueUI).isLoaded)
         {
-            yield return SceneManager.UnloadSceneAsync("DialogueUI");
+            yield return SceneManager.UnloadSceneAsync((int)Constants.Scene.DialogueUI);
         }
     }
 
@@ -111,25 +126,26 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    IEnumerator FaceActors(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
-    {
-        // Get angle needed to face actors toward on another.
-        float angle = Mathf.Atan2(actorB.transform.position.y - actorA.transform.position.y, actorB.transform.position.x - actorA.transform.position.x) * Mathf.Rad2Deg;
+    // Rotates actors to face each other. Commented out for demo.
+    //IEnumerator FaceActors(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
+    //{
+    //    // Get angle needed to face actors toward on another.
+    //    float angle = Mathf.Atan2(actorB.transform.position.y - actorA.transform.position.y, actorB.transform.position.x - actorA.transform.position.x) * Mathf.Rad2Deg;
 
-        Quaternion actorATargetRot = Quaternion.Euler(0f, 0f, angle - 90f);
-        Quaternion actorBTargetRot = Quaternion.Euler(0f, 0f, angle + 90f);
+    //    Quaternion actorATargetRot = Quaternion.Euler(0f, 0f, angle - 90f);
+    //    Quaternion actorBTargetRot = Quaternion.Euler(0f, 0f, angle + 90f);
 
-        float time = 0f;
+    //    float time = 0f;
 
-        // Rotate actors over time.
-        while (time < 1f)
-        {
-            actorA.transform.rotation = Quaternion.Slerp(actorA.transform.rotation, actorATargetRot, time);
-            actorB.transform.rotation = Quaternion.Slerp(actorB.transform.rotation, actorBTargetRot, time);
+    //    // Rotate actors over time.
+    //    while (time < 1f)
+    //    {
+    //        actorA.transform.rotation = Quaternion.Slerp(actorA.transform.rotation, actorATargetRot, time);
+    //        actorB.transform.rotation = Quaternion.Slerp(actorB.transform.rotation, actorBTargetRot, time);
 
-            time += 0.12f;
+    //        time += 0.12f;
 
-            yield return new WaitForSeconds(0.05f);
-        }
-    }
+    //        yield return new WaitForSeconds(0.05f);
+    //    }
+    //}
 }

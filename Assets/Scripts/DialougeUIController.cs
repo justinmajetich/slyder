@@ -8,14 +8,16 @@ using NodeCanvas.DialogueTrees;
 
 public class DialougeUIController : MonoBehaviour
 {
-    public TMP_Text actorName;
     public GameObject dialogueUI;
-
 
     [Header("Subtitle Elements")]
     public GameObject subtitleView;
     public TMP_Text subtitleText;
     public SubtitleAnimator animator;
+
+    [Header("Subtitle Sprites")]
+    public Sprite leftSubtitleBubble;
+    public Sprite rightSubtitleBubble;
 
     [Header("Option Elements")]
     public GameObject optionsView;
@@ -47,7 +49,6 @@ public class DialougeUIController : MonoBehaviour
     private void OnSubtitlesRequest(SubtitlesRequestInfo info)
     {
         ExpressiveDialogueActor actor = (ExpressiveDialogueActor)info.actor;
-        actorName.text = actor.name;
         subtitleText.text = "";
 
         subtitleView.SetActive(true);
@@ -63,7 +64,6 @@ public class DialougeUIController : MonoBehaviour
     {
         ExpressiveDialogueActor actor = (ExpressiveDialogueActor)info.actor;
         float buttonHeight = optionButtonPrefab.GetComponent<RectTransform>().rect.height;
-        actorName.text = info.actor.name;
 
         foreach (KeyValuePair<IStatement, int> option in info.options)
         {
@@ -124,11 +124,15 @@ public class DialougeUIController : MonoBehaviour
         {
             dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.leftUIAnchor.position);
             dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+            dialogueUI.GetComponent<Image>().sprite = rightSubtitleBubble;
+            dialogueUI.GetComponent<VerticalLayoutGroup>().padding.left = 40;
         }
         else if (actor.dialogueOrientation == DialogueOrientation.Right)
         {
             dialogueUI.transform.position = Camera.main.WorldToScreenPoint(actor.rightUIAnchor.position);
             dialogueUI.GetComponent<RectTransform>().pivot = new Vector2(0, 1);
+            dialogueUI.GetComponent<Image>().sprite = leftSubtitleBubble;
+            dialogueUI.GetComponent<VerticalLayoutGroup>().padding.left = 60;
         }
         else
         {
