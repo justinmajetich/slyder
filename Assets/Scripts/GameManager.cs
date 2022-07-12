@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static event Action OnFadeToWhite;
+    public static event Action<ExpressiveDialogueActor, ExpressiveDialogueActor> OnPlayBedroomMonologue;
 
     public static GameManager current;
     GameStateData _data;
@@ -77,9 +78,10 @@ public class GameManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync((int)targetScene);
 
         // Flag bedroom as visited if not already flagged.
-        if (!_data.bedroomWasVisited && targetScene == Constants.Scene.Bedroom)
+        if (targetScene == Constants.Scene.Bedroom && !_data.bedroomWasVisited)
         {
             _data.bedroomWasVisited = true;
+            OnPlayBedroomMonologue?.Invoke(GameObject.Find("Player").GetComponent<ExpressiveDialogueActor>(), null);
         }
 
         PositionPlayerAtSpawn(targetScene);

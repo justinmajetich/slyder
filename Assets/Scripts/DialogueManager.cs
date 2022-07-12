@@ -25,6 +25,7 @@ public class DialogueManager : MonoBehaviour
         SubtitleAnimator.OnAnimationComplete += OnSubtitleAnimationComplete;
         CharacterController2D.OnClickedStartDialogue += OnStartDialogue;
         CameraAnimation.OnCameraZoomed += OnCameraInPosition;
+        GameManager.OnPlayBedroomMonologue += OnStartDialogue;
     }
 
     void OnDisable()
@@ -34,6 +35,7 @@ public class DialogueManager : MonoBehaviour
         SubtitleAnimator.OnAnimationComplete -= OnSubtitleAnimationComplete;
         CharacterController2D.OnClickedStartDialogue -= OnStartDialogue;
         CameraAnimation.OnCameraZoomed -= OnCameraInPosition;
+        GameManager.OnPlayBedroomMonologue -= OnStartDialogue;
     }
 
     void Start()
@@ -44,7 +46,12 @@ public class DialogueManager : MonoBehaviour
     void OnStartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
     {
         //StartCoroutine(FaceActors(instigator, nonPlayerActor));
-        GetActorOrientations(instigator, nonPlayerActor);
+
+        if (instigator != null && nonPlayerActor != null)
+        {
+            GetActorOrientations(instigator, nonPlayerActor);
+        }
+
         StartCoroutine(LoadDialogueUI(instigator, nonPlayerActor));
     }
 
@@ -85,6 +92,8 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
     {
+        Debug.Log("Here: LoadDialogueUI");
+
         while (!cameraInZoomedPosition)
         {
             yield return null;
@@ -96,11 +105,11 @@ public class DialogueManager : MonoBehaviour
         }
 
         // Load actor references into dialogue asset.
-        dialogueAsset.SetActorReference(nonPlayerActor.name, nonPlayerActor);
+        if (nonPlayerActor != null)
+        {
+            dialogueAsset.SetActorReference(nonPlayerActor.name, nonPlayerActor);
+        }
 
-
-
-        // Start dialogue tree.
         controller.StartDialogue(dialogueAsset, instigator, null);
     }
 

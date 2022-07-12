@@ -660,15 +660,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7484203835475947907, guid: 1532b0a1c0ffe924caeaba74194f23d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.82599545
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484203835475947907, guid: 1532b0a1c0ffe924caeaba74194f23d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.9026514
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484203835475947907, guid: 1532b0a1c0ffe924caeaba74194f23d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.625589
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7484203835475947907, guid: 1532b0a1c0ffe924caeaba74194f23d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2943,6 +2943,10 @@ PrefabInstance:
       propertyPath: OutputAudioMixerGroup
       value: 
       objectReference: {fileID: 2842898846102065163, guid: 05f447c1b298b4f488706af141da1354, type: 2}
+    - target: {fileID: 652780207, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: dialogueOrientation
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: footstepAudio.clips.Array.data[0]
       value: 
@@ -3065,6 +3069,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95570198044152192, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: _graph
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: dialogueAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e1f1da678045c4a06ac274df8d62e73d, type: 2}
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogues.Array.size
       value: 2

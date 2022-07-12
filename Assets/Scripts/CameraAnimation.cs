@@ -26,15 +26,17 @@ public class CameraAnimation : MonoBehaviour
     {
         CharacterController2D.OnClickedStartDialogue += OnDialogueStart;
         DialogueTree.OnDialogueFinished += OnDialogueEnd;
+        GameManager.OnPlayBedroomMonologue += OnDialogueStart;
     }
 
     private void OnDisable()
     {
         CharacterController2D.OnClickedStartDialogue -= OnDialogueStart;
         DialogueTree.OnDialogueFinished -= OnDialogueEnd;
+        GameManager.OnPlayBedroomMonologue -= OnDialogueStart;
     }
 
-    private void Start()
+    private void Awake()
     {
         m_Camera = GetComponent<Camera>();
         initialCameraPos = m_Camera.transform.position;
@@ -55,11 +57,19 @@ public class CameraAnimation : MonoBehaviour
     {
         float zoomVelocity = 0f;
         Vector2 panVelocity = Vector2.zero;
+        Vector2 target;
 
-        Vector2 pointA = actorA.transform.position;
-        Vector2 pointB = actorB.transform.position;
+        if (actorB == null)
+        {
+            target = (Vector2)actorA.transform.position + new Vector2(0f, zoomYOffset);
+        }
+        else
+        {
+            Vector2 pointA = actorA.transform.position;
+            Vector2 pointB = actorB.transform.position;
 
-        Vector2 target = new Vector2((pointA.x + pointB.x) / 2, (pointA.y + pointB.y) / 2) + new Vector2(0f, zoomYOffset);
+            target = new Vector2((pointA.x + pointB.x) / 2, (pointA.y + pointB.y) / 2) + new Vector2(0f, zoomYOffset);
+        }
 
         while (m_Camera.orthographicSize - zoomProjectionSize >= 0.01f)
         {
