@@ -90,10 +90,8 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(UnloadDialogueUI());
     }
 
-    IEnumerator LoadDialogueUI(DialogueActor instigator, IDialogueActor nonPlayerActor)
+    IEnumerator LoadDialogueUI(IDialogueActor instigator, IDialogueActor nonPlayerActor)
     {
-        Debug.Log("Here: LoadDialogueUI");
-
         while (!cameraInZoomedPosition)
         {
             yield return null;
