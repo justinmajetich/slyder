@@ -129,7 +129,7 @@ public class SubtitleAnimator : MonoBehaviour
 
                 subtitleText.text += subtitle[i];
 
-                OnTalk?.Invoke(animationSpeed); // WORK IN PROGRESS
+                OnTalk?.Invoke(animationSpeed);
 
                 yield return new WaitForSeconds(GetCharacterDelay(subtitle[i]));
             }
