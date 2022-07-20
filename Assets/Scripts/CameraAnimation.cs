@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using NodeCanvas.DialogueTrees;
 using UnityEngine;
 
@@ -45,59 +46,63 @@ public class CameraAnimation : MonoBehaviour
 
     void OnDialogueStart(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
     {
-        StartCoroutine(ZoomToDialogue(actorA, actorB));
+        List<Vector2> actorPositions = new List<Vector2> { };
+
+        foreach (ExpressiveDialogueActor actor in new ExpressiveDialogueActor[] { actorA, actorB })
+        {
+            if (actor != null)
+            {
+                actorPositions.Add(actor.transform.position);
+            }
+        }
+
+        StartCoroutine(Zoom(actorPositions, zoomProjectionSize));
     }
 
     void OnDialogueEnd(DialogueTree arg)
     {
-        StartCoroutine(ZoomToDefault());
+        StartCoroutine(Zoom(null, defaultProjectionSize));
     }
-    
-    IEnumerator ZoomToDialogue(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
+
+    IEnumerator Zoom(List<Vector2> targetPositions, float targetPorjectionSize)
     {
         float zoomVelocity = 0f;
         Vector2 panVelocity = Vector2.zero;
         Vector2 target;
 
-        if (actorB == null)
+        if (targetPositions == null)
         {
-            target = (Vector2)actorA.transform.position + new Vector2(0f, zoomYOffset);
+            target = initialCameraPos;
+        }
+        else if (targetPositions.Count == 1)
+        {
+            target = targetPositions[0] + new Vector2(0f, zoomYOffset);
         }
         else
         {
-            Vector2 pointA = actorA.transform.position;
-            Vector2 pointB = actorB.transform.position;
+            Vector2 pointA = targetPositions[0];
+            Vector2 pointB = targetPositions[1];
 
             target = new Vector2((pointA.x + pointB.x) / 2, (pointA.y + pointB.y) / 2) + new Vector2(0f, zoomYOffset);
         }
 
-        while (m_Camera.orthographicSize - zoomProjectionSize >= 0.01f)
+        while (Mathf.Abs(m_Camera.orthographicSize - targetPorjectionSize) >= 0.01f)
         {
-            m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, zoomProjectionSize, ref zoomVelocity, zoomSpeed);
+            m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, targetPorjectionSize, ref zoomVelocity, zoomSpeed);
             Vector2 increment = Vector2.SmoothDamp(transform.position, target, ref panVelocity, zoomSpeed);
             transform.position = new Vector3(increment.x, increment.y, initialCameraPos.z);
 
             yield return null;
         }
 
-        OnCameraZoomed?.Invoke();
-    }
-
-    IEnumerator ZoomToDefault()
-    {
-        float zoomVelocity = 0f;
-        Vector2 panVelocity = Vector2.zero;
-
-        while (defaultProjectionSize - m_Camera.orthographicSize >= 0.01f)
+        if (m_Camera.orthographicSize > targetPorjectionSize)
         {
-            m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, defaultProjectionSize, ref zoomVelocity, zoomSpeed);
-            Vector2 increment = Vector2.SmoothDamp(transform.position, initialCameraPos, ref panVelocity, zoomSpeed);
-            transform.position = new Vector3(increment.x, increment.y, initialCameraPos.z);
-
-            yield return null;
+            OnCameraZoomed?.Invoke();
         }
-
-        m_Camera.orthographicSize = defaultProjectionSize;
-        transform.position = initialCameraPos;
+        else
+        {
+            m_Camera.orthographicSize = defaultProjectionSize;
+            transform.position = initialCameraPos;
+        }
     }
 }
