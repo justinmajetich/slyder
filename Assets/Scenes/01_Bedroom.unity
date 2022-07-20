@@ -2948,6 +2948,18 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 27f8e0a63dd4c2d498d6fc2c5de327be, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: footstepAudio.clips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: d750fd4b79c42fb4fad31f479535c55a, type: 3}
@@ -3003,6 +3015,14 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnCloseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: defaultCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
+    - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: walkableCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
     - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: dialogueManager
       value: 

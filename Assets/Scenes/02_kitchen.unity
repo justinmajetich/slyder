@@ -3439,6 +3439,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ac1d55080b11d5047ae6b541f82ef578, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b6608ab0098bfee4cae152d2aaf71b98, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f70c33cf5bfabf547acb50d062a4b136, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dc79e891ee37ba4480afb5deec80e34, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 966c6e86627846c42969594eb562ae5c, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2be86bd2bb88ac74aa52dca2409bacc5, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: eb0b2d312d63fd1478dab394331d348f, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: a9b0be393de03ef4db03b913a1cf436f, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b6608ab0098bfee4cae152d2aaf71b98, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: cb757650fadff0d48afd345038f6a75b, type: 3}
+    - target: {fileID: 1673086321028573997, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
+      propertyPath: talkAudio.clips.Array.data[10]
+      value: 
+      objectReference: {fileID: 8300000, guid: 26df92f92ecde2d49897468208db5eb5, type: 3}
     - target: {fileID: 3935341403930731110, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3448,21 +3492,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 939876461}
     - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
-      propertyPath: defaultCursor
-      value: 
-      objectReference: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
-    - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
-      propertyPath: walkableCursor
-      value: 
-      objectReference: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
-    - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1479367640}
-    - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
-      propertyPath: interactableCursor
-      value: 
-      objectReference: {fileID: 2800000, guid: b47fc810e9ce37b408f71cd96f462e38, type: 3}
     - target: {fileID: 3935341403930731116, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -5266,10 +5298,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95570198044152192, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: _graph
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogueAsset
       value: 
-      objectReference: {fileID: 11400000, guid: a18923c03a63b49118c060d2be0d5cd6, type: 2}
+      objectReference: {fileID: 11400000, guid: d5b5fdba316b2c24cb843dc320cb622f, type: 2}
     - target: {fileID: 95570198044152196, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: m_Name
       value: DialogueManager

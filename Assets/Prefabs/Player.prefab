@@ -301,7 +301,7 @@ AudioSource:
   m_GameObject: {fileID: 367150230}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 2842898846102065163, guid: 05f447c1b298b4f488706af141da1354, type: 2}
+  OutputAudioMixerGroup: {fileID: -8486481733781896810, guid: 05f447c1b298b4f488706af141da1354, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -412,6 +412,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: bc6efcfa60bcc6343b53f303a8d3abf1, type: 3}
     - {fileID: 8300000, guid: 8ede27a6e0800984a84016096ac3ef83, type: 3}
     - {fileID: 8300000, guid: bb808af1e6ad4604293467ee43ed73a6, type: 3}
+  resourcePath: TalkClips/Frankie_TalkClips_Pitched
+  talkAudio:
+    clips: []
 --- !u!1 &467903067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,9 +1093,9 @@ MonoBehaviour:
   waypointPrefab: {fileID: 4765286420353257429, guid: 8e32d0908e3ce2d4c8c09b77e7f447ad, type: 3}
   dialogueManager: {fileID: 0}
   interactRange: 2.5
-  defaultCursor: {fileID: 2800000, guid: 024d3579a88cb9f46b94bd3d6a90c494, type: 3}
-  interactableCursor: {fileID: 2800000, guid: 2392d46be2780cd438cebc6bece538b1, type: 3}
-  walkableCursor: {fileID: 2800000, guid: 024d3579a88cb9f46b94bd3d6a90c494, type: 3}
+  defaultCursor: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
+  interactableCursor: {fileID: 2800000, guid: b47fc810e9ce37b408f71cd96f462e38, type: 3}
+  walkableCursor: {fileID: 2800000, guid: b871c0fc28166dd4793318975bff49b6, type: 3}
   cursorHotspot: {x: 0, y: 0}
 --- !u!114 &652780207
 MonoBehaviour:
@@ -1110,7 +1113,6 @@ MonoBehaviour:
   _portrait: {fileID: 0}
   _dialogueColor: {r: 1, g: 1, b: 1, a: 1}
   _dialogueOffset: {x: 0, y: 0, z: 0}
-  face: {fileID: 494928371}
   leftUIAnchor: {fileID: 1526344756}
   rightUIAnchor: {fileID: 1109489093}
   dialogueOrientation: 0

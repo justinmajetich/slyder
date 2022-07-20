@@ -69,3 +69,5 @@ crashlytics-build.properties
 /Assets/AstarPathfindingProject
 /.vsconfig
 /Assets/AstarPathfindingProject.meta
+/Assets/Audio/UnusedClips
+/Assets/Audio/UnusedClips.meta

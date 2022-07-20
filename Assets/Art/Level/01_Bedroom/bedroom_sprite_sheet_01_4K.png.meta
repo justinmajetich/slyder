@@ -256,8 +256,8 @@ TextureImporter:
       name: bedroom_chair
       rect:
         serializedVersion: 2
-        x: 2553
-        y: 3567
+        x: 2557
+        y: 3569
         width: 298
         height: 522
       alignment: 0
@@ -277,10 +277,10 @@ TextureImporter:
       name: bedroom_lamp
       rect:
         serializedVersion: 2
-        x: 2873
-        y: 3805
+        x: 2871
+        y: 3804
         width: 188
-        height: 270
+        height: 264
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
