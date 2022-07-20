@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     {
         StartGame.OnStartGame += OnTransitionScene;
         CharacterController2D.OnClickedSceneExit += OnTransitionScene;
-        GoToMainMenu.OnFadeToMainMenu += OnTransitionScene;
+        GoToMainMenu.OnFadeToMainMenu += OnReturnToMainMenu;
         SceneFade.OnFadeComplete += OnFadeComplete;
         GoToMainMenu.OnCutToMainMenu += OnReturnToMainMenu;
     }
@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
     {
         StartGame.OnStartGame -= OnTransitionScene;
         CharacterController2D.OnClickedSceneExit -= OnTransitionScene;
-        GoToMainMenu.OnFadeToMainMenu -= OnTransitionScene;
+        GoToMainMenu.OnFadeToMainMenu -= OnReturnToMainMenu;
         SceneFade.OnFadeComplete -= OnFadeComplete;
         GoToMainMenu.OnCutToMainMenu -= OnReturnToMainMenu;
     }
@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public void OnReturnToMainMenu()
     {
         _data = new GameStateData();
+
         StartCoroutine(TransitionScenes(Constants.Scene.MainMenu));
     }
 
@@ -77,16 +78,18 @@ public class GameManager : MonoBehaviour
     {
         yield return SceneManager.LoadSceneAsync((int)targetScene);
 
+        PositionPlayerAtSpawn(targetScene);
+
+        _data.currentScene = targetScene;
+
         // Flag bedroom as visited if not already flagged.
         if (targetScene == Constants.Scene.Bedroom && !_data.bedroomWasVisited)
         {
             _data.bedroomWasVisited = true;
-            OnPlayBedroomMonologue?.Invoke(GameObject.Find("Player").GetComponent<ExpressiveDialogueActor>(), null);
+
+            ExpressiveDialogueActor player = GameObject.Find("Player").GetComponent<ExpressiveDialogueActor>();
+            OnPlayBedroomMonologue?.Invoke(player, null);
         }
-
-        PositionPlayerAtSpawn(targetScene);
-
-        _data.currentScene = targetScene;
     }
 
     // Position player at appropriate entrance to next scene. For the scope of this demo,
