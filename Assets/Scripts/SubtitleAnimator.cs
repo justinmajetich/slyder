@@ -96,13 +96,13 @@ public class SubtitleAnimator : MonoBehaviour
                 break;
             }
 
-            // If character opens expression tag (ex. "<speed=1>", pass to parser and wait for new position. Loop in case of subsequent tags.
+            // Check for expression tag and parse. Loop in case of subsequent tags.
             while (subtitle[i] == Constants.ExpressionTagOpen)
             {
-                // Parser returns position in text following tag close.
+                // Parser returns a copy of the subtitle with current tag removed.
                 subtitle = ExpressionTagParser.Parse(subtitle, i);
 
-                // If parser returns position beyond range of subtitle text, jump out of animation loops.
+                // If parsed string is now shorter than current position.
                 if (i >= subtitle.Length)
                 {
                     goto AnimationComplete;
@@ -121,6 +121,7 @@ public class SubtitleAnimator : MonoBehaviour
                 // Check if character begins new word.
                 if (i != 0 && subtitle[i - 1] == ' ')
                 {
+                    // Runs ahead to check if current word will fit on current line.
                     if (!WordWillFitLine(subtitle, i))
                     {
                         subtitleText.text += '\n';

@@ -45,8 +45,6 @@ public class DialogueManager : MonoBehaviour
 
     void OnStartDialogue(ExpressiveDialogueActor instigator, ExpressiveDialogueActor nonPlayerActor)
     {
-        //StartCoroutine(FaceActors(instigator, nonPlayerActor));
-
         if (instigator != null && nonPlayerActor != null)
         {
             GetActorOrientations(instigator, nonPlayerActor);
@@ -121,7 +119,7 @@ public class DialogueManager : MonoBehaviour
 
     void GetActorOrientations(ExpressiveDialogueActor actorA, ExpressiveDialogueActor actorB)
     {
-        if (Vector3.Dot(actorA.transform.position.normalized - actorB.transform.position.normalized, Vector3.right) <= 0f)
+        if (Vector3.Dot(actorA.transform.position - actorB.transform.position, Vector3.right) <= 0f)
         {
             actorA.dialogueOrientation = DialogueOrientation.Left;
             actorB.dialogueOrientation = DialogueOrientation.Right;
