@@ -7,7 +7,7 @@ using TMPro;
 public class SubtitleAnimator : MonoBehaviour
 {
     public static event Action OnAnimationComplete;
-    public static event Action<float> OnTalk;
+    public static event Action<float, char> OnTalk;
 
     [Serializable]
     public class SubtitleSpeeds
@@ -130,7 +130,7 @@ public class SubtitleAnimator : MonoBehaviour
 
                 subtitleText.text += subtitle[i];
 
-                OnTalk?.Invoke(animationSpeed);
+                OnTalk?.Invoke(animationSpeed, subtitle[i]);
 
                 yield return new WaitForSeconds(GetCharacterDelay(subtitle[i]));
             }
