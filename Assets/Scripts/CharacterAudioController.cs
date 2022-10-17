@@ -59,9 +59,9 @@ public class CharacterAudioController : MonoBehaviour
         source.Play();
     }
 
-    void PlayTalkClip(float speed)
+    void PlayTalkClip(float speed, char character)
     {
-        if (isActiveActor && !source.isPlaying)
+        if (isActiveActor && !source.isPlaying && char.IsLetterOrDigit(character))
         {
             source.clip = LoadRandomClip(talkAudio.clips);
             source.Play();

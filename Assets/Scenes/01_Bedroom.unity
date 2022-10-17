@@ -3096,7 +3096,7 @@ PrefabInstance:
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogueAsset
       value: 
-      objectReference: {fileID: 11400000, guid: e1f1da678045c4a06ac274df8d62e73d, type: 2}
+      objectReference: {fileID: 11400000, guid: 1a812da60a527b74d8ccbd4e23845d24, type: 2}
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogues.Array.size
       value: 2

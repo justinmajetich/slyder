@@ -295,9 +295,9 @@ public class CharacterSpriteController : MonoBehaviour
         }
     }
 
-    private void OnTalk(float speed)
+    private void OnTalk(float speed, char character)
     {
-        if (!isTalking && isActiveActor)
+        if (!isTalking && isActiveActor && char.IsLetterOrDigit(character))
         {
             StartCoroutine(Talking(speed));
         }
@@ -318,7 +318,7 @@ public class CharacterSpriteController : MonoBehaviour
     IEnumerator Talking(float speed)
     {
         // Add small randomization to duration of each talk cycle.
-        float talkSpeed = speed * (talkSpeedModifier + UnityEngine.Random.Range(0.0f, 0.5f));
+        float talkSpeed = Mathf.Clamp(speed, 0.03f, 0.25f) * (talkSpeedModifier + UnityEngine.Random.Range(0.0f, 0.5f));
 
         isTalking = true;
 
