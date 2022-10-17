@@ -29,8 +29,6 @@ public class SubtitleAnimator : MonoBehaviour
         public float commaDelayModifier = 2.5f;
         [Range(0f, 1f), Tooltip("This modifier decreases the base duration of character animation by a given percentage.")]
         public float spaceDelayModifier = 0.5f;
-        //[Range(0f, 1f), Tooltip("Animate this character at given percent of default animation speed")]
-        //public float finalDelay = 1.2f;
 
         [Header("Expressive Pauses")]
         public float shortPause = 0.5f;
@@ -49,7 +47,7 @@ public class SubtitleAnimator : MonoBehaviour
     bool pauseTriggered = false;
 
     [Space]
-    public bool allowAnimationSkip = true;
+    public bool allowAnimationSkip = false;
 
 
     void OnEnable()
@@ -62,6 +60,13 @@ public class SubtitleAnimator : MonoBehaviour
     {
         ExpressionTagParser.OnSpeedExpressed -= OnSpeedExpressed;
         ExpressionTagParser.OnPauseExpressed -= OnPauseExpressed;
+    }
+
+    private void Start()
+    {
+        #if UNITY_EDITOR
+            allowAnimationSkip = true;
+        #endif
     }
 
     /// <summary>

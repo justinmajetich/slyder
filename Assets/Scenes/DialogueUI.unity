@@ -601,4 +601,4 @@ MonoBehaviour:
     mediumPause: 1
     longPause: 2
     veryLongPause: 4
-  allowAnimationSkip: 1
+  allowAnimationSkip: 0
