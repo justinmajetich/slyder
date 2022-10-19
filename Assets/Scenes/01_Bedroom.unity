@@ -3009,11 +3009,11 @@ PrefabInstance:
       objectReference: {fileID: 854155193}
     - target: {fileID: 3935341403930731110, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnOpenMenu
+      value: OnToggleMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3935341403930731110, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnCloseMenu
+      value: OnToggleMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3935341403930731114, guid: 72cd7d7b391ad44a3a698014166d64dd, type: 3}
       propertyPath: defaultCursor
@@ -3093,6 +3093,10 @@ PrefabInstance:
       propertyPath: _graph
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: inGameMenu
+      value: 
+      objectReference: {fileID: 854155193}
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogueAsset
       value: 

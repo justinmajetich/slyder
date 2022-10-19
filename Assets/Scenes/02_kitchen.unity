@@ -5303,6 +5303,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
+      propertyPath: inGameMenu
+      value: 
+      objectReference: {fileID: 939876461}
+    - target: {fileID: 95570198044152194, guid: 8c9aa3399cbaf48a08262ebedd885e27, type: 3}
       propertyPath: dialogueAsset
       value: 
       objectReference: {fileID: 11400000, guid: d5b5fdba316b2c24cb843dc320cb622f, type: 2}

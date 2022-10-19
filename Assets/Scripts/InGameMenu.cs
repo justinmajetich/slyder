@@ -10,7 +10,7 @@ public class InGameMenu : MonoBehaviour
 
     [SerializeField]
     GameObject menuRoot;
-    bool menuIsOpen = false;
+    public bool menuIsOpen = false;
     bool waitingOnFade = false;
 
     private void Awake()
@@ -28,17 +28,14 @@ public class InGameMenu : MonoBehaviour
         SceneFade.OnFadeComplete -= EnableMenuContent;
     }
 
-    public void OnOpenMenu(InputAction.CallbackContext value)
+    public void OnToggleMenu(InputAction.CallbackContext value)
     {
         if (!menuIsOpen && value.action.WasPerformedThisFrame())
         {
             OnMenuOpened?.Invoke();
             waitingOnFade = true;
         }
-    }
 
-    public void OnCloseMenu(InputAction.CallbackContext value)
-    {
         if (menuIsOpen && value.action.WasPerformedThisFrame())
         {
             OnResumeGame();
@@ -57,9 +54,11 @@ public class InGameMenu : MonoBehaviour
 
     public void OnResumeGame()
     {
+        OnFadeToScene?.Invoke();
+
+
         EventSystem.current.SetSelectedGameObject(null);
         menuRoot.SetActive(false);
         menuIsOpen = false;
-        OnFadeToScene?.Invoke();
     }
 }

@@ -13,6 +13,9 @@ public class DialogueManager : MonoBehaviour
     public DialogueTreeController controller;
     public DialogueTree dialogueAsset;
 
+    [SerializeField]
+    InGameMenu inGameMenu;
+
     bool cameraInZoomedPosition = false;
 
     SubtitlesRequestInfo activeSubtitleInfo;
@@ -65,8 +68,8 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator WaitForInputToContinue()
     {
-        // Wait for Space press to continue.
-        while (!Mouse.current.leftButton.wasPressedThisFrame)
+        // Wait for click to continue.
+        while (inGameMenu.menuIsOpen || !Mouse.current.leftButton.wasPressedThisFrame)
         {
             yield return null;
         }

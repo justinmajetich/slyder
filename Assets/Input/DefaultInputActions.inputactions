@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ToggleMenu",
+                    "name": "OpenMenu",
                     "type": "Button",
                     "id": "cfc08214-8563-4949-8900-be32c37b38db",
                     "expectedControlType": "Button",
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ToggleMenu",
+                    "action": "OpenMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -54,7 +54,7 @@
             "id": "2f8704eb-f307-4e93-af22-be70007c668b",
             "actions": [
                 {
-                    "name": "Close",
+                    "name": "ToggleMenu",
                     "type": "Button",
                     "id": "6ccca9f4-6e4f-41e7-b99e-5a202f14ba58",
                     "expectedControlType": "Button",
@@ -71,7 +71,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Close",
+                    "action": "ToggleMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

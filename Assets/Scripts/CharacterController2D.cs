@@ -24,6 +24,7 @@ public class CharacterController2D : MonoBehaviour
     [Header("Interaction Settings")]
     public DialogueManager dialogueManager;
     ExpressiveDialogueActor actorSelf;
+    bool inDialogue = false;
 
     RaycastHit2D hit;
     Vector2 lastMousePosition;
@@ -31,7 +32,6 @@ public class CharacterController2D : MonoBehaviour
     [SerializeField, Tooltip("Distance at which an interaction can be initiated.")]
     float interactRange = 1.0f;
     Coroutine waitToInteract;
-    bool isInteracting = false;
 
     [Header("Cursor Textures")]
     [SerializeField]
@@ -46,16 +46,16 @@ public class CharacterController2D : MonoBehaviour
 
     void OnEnable()
     {
-        DialogueTree.OnDialogueStarted += OnDialogueDisablesActions;
-        DialogueTree.OnDialogueFinished += OnDialogueEnablesActions;
+        DialogueTree.OnDialogueStarted += OnDialogueStarted;
+        DialogueTree.OnDialogueFinished += OnDialogueEnded;
         InGameMenu.OnMenuOpened += OnDisableActions;
         InGameMenu.OnFadeToScene += OnEnableActions;
     }
 
     void OnDisable()
     {
-        DialogueTree.OnDialogueStarted -= OnDialogueDisablesActions;
-        DialogueTree.OnDialogueFinished -= OnDialogueEnablesActions;
+        DialogueTree.OnDialogueStarted -= OnDialogueStarted;
+        DialogueTree.OnDialogueFinished -= OnDialogueEnded;
         InGameMenu.OnMenuOpened -= OnDisableActions;
         InGameMenu.OnFadeToScene -= OnEnableActions;
     }
@@ -76,7 +76,7 @@ public class CharacterController2D : MonoBehaviour
 
     void Update()
     {
-        if (!isInteracting)
+        if (!inDialogue)
         {
             MouseHover();
         }
@@ -197,26 +197,27 @@ public class CharacterController2D : MonoBehaviour
         interactCallback();
     }
 
-    void OnDialogueEnablesActions(DialogueTree obj)
+    void OnDialogueStarted(DialogueTree obj)
     {
-        OnEnableActions();
+        inDialogue = true;
+        OnDisableActions();
     }
 
-    void OnDialogueDisablesActions(DialogueTree obj)
+    void OnDialogueEnded(DialogueTree obj)
     {
-        OnDisableActions();
+        inDialogue = false;
+        OnEnableActions();
     }
 
     void OnEnableActions()
     {
-        playerInput.SwitchCurrentActionMap("Player");
-        isInteracting = false;
+        if (!inDialogue)
+            playerInput.SwitchCurrentActionMap("Player");
     }
 
     void OnDisableActions()
     {
         playerInput.SwitchCurrentActionMap("Menu");
-        isInteracting = true;
         Cursor.SetCursor(defaultCursor, cursorHotspot, CursorMode.Auto);
     }
 }
